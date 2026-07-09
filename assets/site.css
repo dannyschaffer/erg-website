@@ -355,6 +355,22 @@ h1 .accent {
   gap: 14px;
 }
 
+.hero-audience-note {
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.875rem;
+}
+
+.hero-audience-note a {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-audience-note a:hover {
+  color: var(--orange);
+}
+
 /* ---------- Page intro (subpages without a photo hero) ---------- */
 
 .page-intro {
@@ -688,6 +704,52 @@ h2 {
   margin: 0;
   color: var(--muted);
   font-size: 0.9375rem;
+}
+
+.solutions-footnote {
+  margin: var(--space-lg) 0 0;
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* ---------- Photo band ---------- */
+
+.photo-band {
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(0deg, rgba(11, 11, 12, 0.86) 0%, rgba(11, 11, 12, 0.32) 60%, rgba(11, 11, 12, 0.05) 100%),
+    url("./property-hero.png");
+  background-position: center;
+  background-size: cover;
+  color: var(--white);
+}
+
+.photo-band-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+.photo-band-eyebrow {
+  margin: 0 0 8px;
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.photo-band-line {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--white);
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 /* ---------- Verticals: whitespace-grouped blocks ---------- */
@@ -1040,6 +1102,55 @@ cite {
   font-weight: 700;
 }
 
+/* ---------- FAQ ---------- */
+
+.faq-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--ink-black);
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--orange);
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  margin: 0 0 var(--space-md);
+  max-width: 62ch;
+  color: var(--muted);
+}
+
 /* ---------- CTA ---------- */
 
 .cta {
@@ -1146,6 +1257,77 @@ cite {
   margin-top: var(--space-lg);
   padding-top: 0;
   border-top: 0;
+}
+
+.contact-block .button {
+  margin-top: var(--space-sm);
+}
+
+.contact-block .contact-meta + .button {
+  margin-top: var(--space-md);
+}
+
+/* ---------- Callback form ---------- */
+
+.callback-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg) var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--line);
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row-wide {
+  grid-column: 1 / -1;
+}
+
+.form-row label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-black);
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.form-row input:focus-visible,
+.form-row textarea:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 1px;
+}
+
+.callback-form .button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .callback-form {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Footer ---------- */

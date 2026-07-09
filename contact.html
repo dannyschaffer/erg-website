@@ -12,6 +12,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/site.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are Elite Recovery Group's business hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monday to Thursday, 8am to 3pm PST, and Friday, 8am to 12pm PST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I pay a bill or dispute a charge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bills can be paid or disputed through the Pay or Dispute a Bill page, which links to the secure payment portal and provides a direct line for disputes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check my account or portfolio status?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Client status and portfolio activity are available through the Client Access portal at elite.clientconnectaccess.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Elite Recovery Group's license number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "License number ACC-23281785."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who do I contact about a new portfolio or partnership?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shawn Juarez, Managing Director of US Collections and Growth, and Anton Vukic, VP of Global Business Partnerships, both handle portfolio and partnership inquiries directly."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#top">Skip to content</a>
@@ -29,11 +77,11 @@
           <a href="./index.html#process">Process</a>
           <a href="./leadership.html">Leadership</a>
           <a href="./contact.html">Contact</a>
-          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Pay Bill</a>
-          <a class="utility-link" href="https://epp.youraccountadvantage.com/">Client Access</a>
+          <a class="utility-link" href="./pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
         </nav>
         <div class="nav-actions">
-          <a class="phone-link" href="tel:+14808471323">480-847-1323</a>
+          <a class="phone-link" href="tel:+14808407595">480-840-7595</a>
           <a class="button" href="#contact">Book recovery review</a>
           <button
             type="button"
@@ -56,9 +104,9 @@
           <a href="./index.html#process">Process</a>
           <a href="./leadership.html">Leadership</a>
           <a href="./contact.html">Contact</a>
-          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Pay Bill</a>
-          <a class="utility-link" href="https://epp.youraccountadvantage.com/">Client Access</a>
-          <a href="tel:+14808471323">480-847-1323</a>
+          <a class="utility-link" href="./pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">480-840-7595</a>
           <a class="button" href="#contact">Book recovery review</a>
         </div>
       </div>
@@ -89,27 +137,118 @@
           <div class="contact-grid">
             <div class="contact-block">
               <h3>General inquiries</h3>
-              <a class="contact-line" href="tel:+14808471323">480-847-1323</a>
+              <a class="contact-line" href="tel:+14808407595">480-840-7595</a>
               <a class="contact-line" href="https://www.ergroupllc.com">ergroupllc.com</a>
-              <address class="contact-address">1616 E Main St, STE 115<br>Mesa, AZ 85203</address>
+              <address class="contact-address">1616 E Main St, STE 230<br>Mesa, AZ 85203</address>
               <p class="contact-meta">Monday to Thursday, 8am to 3pm PST<br>Friday, 8am to 12pm PST</p>
               <p class="contact-meta">License number ACC-23281785</p>
+            </div>
+
+            <div class="contact-block">
+              <h3>Paying or disputing a bill</h3>
+              <p class="contact-meta">Residents and former residents with a balance should use the dedicated payment and dispute line, kept separate from client and portfolio contacts.</p>
+              <a class="button" href="./pay-dispute.html">Pay or dispute a bill</a>
             </div>
 
             <div class="contact-block">
               <h3>Portfolio and partnerships</h3>
               <div class="contact-person">
                 <strong>Shawn Juarez</strong>
-                <span>Managing Director, US Collections and Growth</span><br>
-                <a href="mailto:shawn@ergroupllc.com">shawn@ergroupllc.com</a>
+                <span>Managing Director, US Collections and Growth</span>
               </div>
               <div class="contact-person">
                 <strong>Anton Vukic</strong>
-                <span>VP of Global Business Partnerships</span><br>
-                <a href="mailto:anton.vukic1@ergroupllc.com">anton.vukic1@ergroupllc.com</a>
+                <span>VP of Global Business Partnerships</span>
               </div>
+              <p class="contact-meta">Reach either directly by requesting a callback below, or call 480-840-7595.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="callback">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <h2>Request a callback.</h2>
+            </div>
+            <p>
+              Tell us a little about your portfolio and the right contact will follow up directly.
+            </p>
+          </div>
+
+          <form class="callback-form" name="callback-request" method="POST" data-netlify="true" netlify-honeypot="company-website">
+            <input type="hidden" name="form-name" value="callback-request">
+            <p class="hp-field"><label>Don't fill this out if you're human: <input name="company-website"></label></p>
+            <div class="form-row">
+              <label for="cb-name">Name</label>
+              <input id="cb-name" name="name" type="text" required>
+            </div>
+            <div class="form-row">
+              <label for="cb-company">Company</label>
+              <input id="cb-company" name="company" type="text">
+            </div>
+            <div class="form-row">
+              <label for="cb-email">Email</label>
+              <input id="cb-email" name="email" type="email" required>
+            </div>
+            <div class="form-row">
+              <label for="cb-phone">Phone</label>
+              <input id="cb-phone" name="phone" type="tel">
+            </div>
+            <div class="form-row form-row-wide">
+              <label for="cb-message">What are you looking to discuss?</label>
+              <textarea id="cb-message" name="message" rows="4"></textarea>
+            </div>
+            <button class="button" type="submit">Request a callback</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Frequently asked</p>
+              <h2>Quick answers before you reach out.</h2>
+            </div>
+            <p>
+              The practical questions that come up most before a call or email.
+            </p>
+          </div>
+
+          <ul class="faq-list">
+            <li class="faq-item">
+              <details>
+                <summary>What are your business hours?</summary>
+                <p>Monday to Thursday, 8am to 3pm PST, and Friday, 8am to 12pm PST.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How do I pay a bill or dispute a charge?</summary>
+                <p>Visit <a href="./pay-dispute.html">Pay or Dispute a Bill</a> for the secure payment portal and a direct line for disputes.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How do I check my account or portfolio status?</summary>
+                <p>Status and portfolio activity are available through the <a href="https://elite.clientconnectaccess.com/">Client Access</a> portal.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>What is your license number?</summary>
+                <p>License number ACC-23281785.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Who do I contact about a new portfolio or partnership?</summary>
+                <p>Shawn Juarez, Managing Director of US Collections and Growth, and Anton Vukic, VP of Global Business Partnerships, both handle portfolio and partnership inquiries directly. <a href="#callback">Request a callback</a> or call 480-840-7595.</p>
+              </details>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
@@ -121,8 +260,9 @@
           Elite Recovery Group, Specialist Property Collections
         </span>
         <span>
-          <a href="https://elite.clientconnectaccess.com/">Pay Bill</a> |
-          <a href="https://epp.youraccountadvantage.com/">Client Access</a> |
+          <a href="./blog.html">Blog</a> |
+          <a href="./pay-dispute.html">Pay Bill</a> |
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a> |
           Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant
         </span>
       </div>
