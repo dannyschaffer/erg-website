@@ -722,7 +722,7 @@ h2 {
   align-items: flex-end;
   background:
     linear-gradient(0deg, rgba(11, 11, 12, 0.86) 0%, rgba(11, 11, 12, 0.32) 60%, rgba(11, 11, 12, 0.05) 100%),
-    url("./property-hero.png");
+    url("./property-hero.jpg");
   background-position: center;
   background-size: cover;
   color: var(--white);
