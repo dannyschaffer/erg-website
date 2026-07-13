@@ -1246,11 +1246,16 @@ cite {
   font-size: 1.0625rem;
 }
 
-.contact-block .contact-meta {
+.contact-block .contact-meta,
+.contact-grid + .contact-meta {
   margin: var(--space-2xs) 0 0;
   color: var(--muted);
   font-size: 0.875rem;
   line-height: 1.5;
+}
+
+.contact-grid + .contact-meta {
+  margin-top: var(--space-lg);
 }
 
 .contact-block .contact-person:first-of-type {
