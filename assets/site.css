@@ -994,6 +994,12 @@ h2 {
   background: var(--soft);
 }
 
+/* ---------- FAQ (soft background variant) ---------- */
+
+.faq-soft {
+  background: var(--soft);
+}
+
 /* ---------- Testimonial ---------- */
 
 .testimonial {
