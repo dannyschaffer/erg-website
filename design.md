@@ -43,19 +43,31 @@ The fix for "pages look the same" is that every motif is derived directly from t
 
 Batch 1 pages are included on purpose — the "everything looks the same" problem is worst on the 3 oldest pages since they've had the longest to sit untouched. All 6 service pages plus both posts should ship together as one visual pass.
 
-## Placement (once images exist)
+## Placement (shipped)
 
-Not implemented yet — this is the target markup so dropping in a finished image later is a one-line change, not a redesign:
+Live on all 8 pages/posts, `.page-hero-graphic` in `assets/site.css`:
 
 ```html
 <div class="page-hero-graphic">
-  <img src="./assets/graphics/[slug]-hero.webp" alt="" loading="lazy">
+  <div class="section-inner">
+    <img src="./assets/graphics/[slug]-hero.webp" alt="" loading="lazy">
+  </div>
 </div>
 ```
 
-Sits directly under `.page-intro` on service pages, and under the byline (`.article-meta`) on blog posts, full-width within `.section-inner`, capped height (~320–380px), `object-fit: cover`. `alt=""` since these are decorative diagrams, not informational images — the page's actual content already carries the information.
+Sits directly under `.page-intro` on service pages, and under the byline (`.article-meta`) on blog posts (blog paths use `../assets/graphics/`), full-width within `.section-inner`, capped height 320px (200px under 640px). `alt=""` since these are decorative diagrams, not informational images — the page's actual content already carries the information.
 
-## NanoBanana prompts
+## Generation notes (from actually running this)
+
+Ended up generating via **FLUX1.1 [pro]** (Black Forest Labs API, `https://api.bfl.ai/v1/flux-pro-1.1`) instead of NanoBanana — same style brief works for either, prompts below are written generically. Real lessons from producing the 8 shipped images, worth reading before generating more:
+
+- **Background hex never lands exactly.** Every generation drifted from `#17191d` by a noticeable margin, and drifted differently across separate calls — placed side by side they visibly didn't match. Fix: sample each image's actual background color and replace every pixel within a color-distance threshold with the exact target hex, per image, before shipping. Don't skip this even if a single image looks fine in isolation.
+- **Small enclosed color-fill regions are unreliable.** The one-orange-accent rule works great for large/simple shapes (a big shield, a filled circle, a filled square) but repeatedly failed on smaller sub-elements (a door, one pan of a scale, one checkbox) — the model would render the whole icon in cream outline only, dropping the orange fill entirely, even when the prompt led with the color instruction. Two service-page and one blog motif needed 4-6 regeneration rounds each before landing correctly; two still never landed via text-to-image and were fixed with a manual PIL flood-fill/luminance-threshold pass instead of continuing to regenerate. If a color-fill instruction on a small region keeps failing after 2-3 tries, switch to fixing it in post rather than continuing to spend generations.
+- **Literal object names in a prompt can get illustrated literally.** A "fork in the road" motif came back as two dinner forks (cutlery). Describe the pure geometry (angles, line segments) instead of a metaphor name.
+- **Drop shadows and 3D bevels creep in on icon-like subjects** (shields, badges) even when the prompt explicitly says flat/no-shadow. If it happens, composite the subject onto a fresh flat-color canvas rather than fighting the model for another round.
+- **Cost was trivial** — 8 shipped images plus roughly 20 discarded regeneration attempts across the trial-and-error above, all at $0.04/image, came to under $1.20 total.
+
+## Prompts actually used
 
 Shared style block, prepended to every prompt below:
 
@@ -119,7 +131,6 @@ python SKILL_DIR/scripts/nanobanana_api.py generate \
 
 Replace `[shared style block]` with the full paragraph above when actually running these — kept as a placeholder here so the per-image motif is easy to scan.
 
-## Open questions
+## If generating more graphics for this site later
 
-- NanoBanana can drift on strict geometric consistency across separate calls (it's not a template engine) — first-pass outputs should be spot-checked against each other for palette/weight consistency before all 8 ship, not just individually approved.
-- If any come back with garbled linework or an accidental second colored element, regenerate rather than edit — cheaper and cleaner than trying to patch via `edit` mode.
+Reuse the same shared style block and the "one orange accent on an otherwise two-color image" rule for consistency with the 8 already shipped. Budget for the background-normalization and small-region color-fill issues above — treat them as the default plan, not a fallback.
