@@ -1649,7 +1649,7 @@ cite {
 /* ---------- Footer ---------- */
 
 .site-footer {
-  padding: var(--space-lg) 0;
+  padding: var(--space-xl) 0;
   background: var(--ink-black);
   color: rgba(255, 255, 255, 0.68);
   font-family: var(--font-mono);
@@ -1659,10 +1659,10 @@ cite {
 .footer-wrap {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 32px;
+  align-items: start;
 }
 
 .footer-brand {
@@ -1675,6 +1675,28 @@ cite {
   height: 40px;
   width: auto;
   flex: 0 0 auto;
+}
+
+.footer-tagline {
+  margin: var(--space-sm) 0 0;
+  max-width: 34ch;
+  line-height: 1.6;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col-heading {
+  margin-bottom: 4px;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .footer-wrap a {
@@ -1713,6 +1735,10 @@ cite {
   .cta-wrap,
   .footer-wrap {
     width: min(100% - 32px, 720px);
+  }
+
+  .footer-wrap {
+    grid-template-columns: 1.4fr 1fr;
   }
 
   .nav-wrap {
@@ -1870,7 +1896,8 @@ cite {
   }
 
   .footer-wrap {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 }
 
