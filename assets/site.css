@@ -714,6 +714,209 @@ h2 {
   line-height: 1.6;
 }
 
+/* ---------- Article (blog) ---------- */
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.article-meta strong {
+  color: var(--ink-black);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.article-body {
+  max-width: 72ch;
+}
+
+.article-body h2 {
+  margin-top: var(--space-2xl);
+  font-size: clamp(1.375rem, 0.6vw + 1.2rem, 1.75rem);
+}
+
+.article-body h3 {
+  margin-top: var(--space-lg);
+  font-size: 1.125rem;
+}
+
+.article-body p {
+  margin: 0 0 var(--space-md);
+  color: var(--ink);
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.25em;
+  color: var(--ink);
+}
+
+.article-body li {
+  margin-bottom: 8px;
+}
+
+.article-body a {
+  color: var(--orange-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-body a:hover {
+  color: var(--orange);
+}
+
+.punchline {
+  margin: var(--space-sm) 0 var(--space-lg);
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--orange);
+  font-size: 1.0625rem;
+}
+
+.quick-answer {
+  margin: var(--space-lg) 0 var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--orange-wash);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.quick-answer strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--orange-dark);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quick-answer p {
+  margin: 0;
+  color: var(--ink-black);
+}
+
+.quick-answer p + p {
+  margin-top: 8px;
+}
+
+.key-takeaways {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--soft);
+  border-radius: var(--radius-md);
+}
+
+.key-takeaways strong {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--ink-black);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.key-takeaways ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+.key-takeaways li {
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.article-table-wrap {
+  margin: var(--space-lg) 0 var(--space-xl);
+  overflow-x: auto;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.article-table caption {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.article-table th,
+.article-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-table th {
+  background: var(--soft);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--ink-black);
+}
+
+.article-related {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.article-related a {
+  color: var(--orange-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.blog-index-item {
+  display: block;
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.blog-index-item .eyebrow {
+  margin-bottom: 8px;
+}
+
+.blog-index-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.blog-index-item p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 68ch;
+}
+
 /* ---------- Photo band ---------- */
 /* property-band.jpg: aerial suburban neighborhood, Tom Rumble via Unsplash (free license) */
 
@@ -1703,5 +1906,18 @@ cite {
   .mobile-panel .button {
     margin-top: var(--space-2xs);
     align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .quick-answer,
+  .key-takeaways {
+    padding: var(--space-md);
+  }
+
+  .article-table th,
+  .article-table td {
+    padding: 10px 12px;
+    font-size: 0.875rem;
   }
 }
