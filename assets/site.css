@@ -723,8 +723,8 @@ h2 {
 .page-hero-graphic img {
   display: block;
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   border-radius: var(--radius-md);
 }
 
@@ -737,14 +737,14 @@ h2 {
   gap: var(--space-sm);
   margin-top: var(--space-md);
   padding-top: var(--space-md);
-  border-top: 1px solid var(--line);
-  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
 }
 
 .article-meta strong {
-  color: var(--ink-black);
+  color: var(--white);
   font-family: var(--font-sans);
   font-weight: 600;
 }
@@ -1933,9 +1933,5 @@ cite {
   .article-table td {
     padding: 10px 12px;
     font-size: 0.875rem;
-  }
-
-  .page-hero-graphic img {
-    height: 200px;
   }
 }
