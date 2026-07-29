@@ -721,37 +721,45 @@ h2 {
 }
 
 .page-hero-graphic-frame {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 9;
+  background: var(--ink-black);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
 
-.page-hero-graphic-frame img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-}
-
 .page-hero-graphic-caption {
-  position: absolute;
-  left: var(--space-xl);
-  right: var(--space-xl);
-  bottom: var(--space-xl);
-  max-width: 42ch;
+  flex: 1 1 50%;
+  padding: var(--space-xl) var(--space-xl) var(--space-md);
 }
 
 .page-hero-graphic-caption h2 {
   color: var(--white);
   font-size: clamp(1.5rem, 1.2vw + 1.2rem, 2.25rem);
   margin-bottom: var(--space-xs);
+  max-width: 20ch;
 }
 
 .page-hero-graphic-caption p {
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.0625rem;
   line-height: 1.6;
+  max-width: 48ch;
   margin: 0;
+}
+
+.page-hero-graphic-image {
+  flex: 1 1 50%;
+  min-height: 0;
+  padding: 0 var(--space-xl) var(--space-xl);
+}
+
+.page-hero-graphic-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ---------- Article (blog) ---------- */
@@ -1832,10 +1840,15 @@ cite {
   }
 
   .page-hero-graphic-caption {
-    left: var(--space-md);
-    right: var(--space-md);
-    bottom: var(--space-md);
+    padding: var(--space-md) var(--space-md) var(--space-sm);
+  }
+
+  .page-hero-graphic-caption p {
     max-width: none;
+  }
+
+  .page-hero-graphic-image {
+    padding: 0 var(--space-md) var(--space-md);
   }
 
   .contact-card {
