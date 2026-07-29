@@ -451,6 +451,14 @@ section {
   margin-bottom: var(--space-2xl);
 }
 
+.section-heading-stacked {
+  grid-template-columns: 1fr;
+}
+
+.section-heading-stacked p {
+  max-width: none;
+}
+
 h2 {
   margin-bottom: 0;
   font-weight: 600;
