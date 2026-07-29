@@ -720,12 +720,38 @@ h2 {
   padding: var(--space-lg) 0 0;
 }
 
-.page-hero-graphic img {
+.page-hero-graphic-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.page-hero-graphic-frame img {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: contain;
-  border-radius: var(--radius-md);
+}
+
+.page-hero-graphic-caption {
+  position: absolute;
+  left: var(--space-xl);
+  right: var(--space-xl);
+  bottom: var(--space-xl);
+  max-width: 42ch;
+}
+
+.page-hero-graphic-caption h2 {
+  color: var(--white);
+  font-size: clamp(1.5rem, 1.2vw + 1.2rem, 2.25rem);
+  margin-bottom: var(--space-xs);
+}
+
+.page-hero-graphic-caption p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* ---------- Article (blog) ---------- */
@@ -1802,6 +1828,13 @@ cite {
 
   .section-heading p {
     margin-top: var(--space-md);
+    max-width: none;
+  }
+
+  .page-hero-graphic-caption {
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: var(--space-md);
     max-width: none;
   }
 
