@@ -717,13 +717,8 @@ h2 {
 /* ---------- Page hero graphic ---------- */
 
 .page-hero-graphic {
-  padding: var(--space-lg) 0 0;
-}
-
-.page-hero-graphic-frame {
   background: var(--ink-black);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) 0;
 }
 
 .page-hero-graphic-caption h2 {
@@ -1818,8 +1813,8 @@ cite {
     max-width: none;
   }
 
-  .page-hero-graphic-frame {
-    padding: var(--space-md);
+  .page-hero-graphic {
+    padding: var(--space-xl) 0;
   }
 
   .page-hero-graphic-caption p {
