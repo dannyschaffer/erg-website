@@ -53,3 +53,17 @@
     }
   });
 })();
+
+(function () {
+  var callbackForm = document.querySelector('form[name="callback-request"]');
+  if (!callbackForm) return;
+
+  callbackForm.addEventListener("submit", function () {
+    if (typeof window.gtag !== "function") return;
+
+    window.gtag("event", "generate_lead", {
+      form_name: "callback-request",
+      transport_type: "beacon"
+    });
+  });
+})();

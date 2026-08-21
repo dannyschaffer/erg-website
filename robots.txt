@@ -45,4 +45,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://www.ergroupllc.com/sitemap.xml
+Sitemap: https://ergroupllc.com/sitemap.xml
