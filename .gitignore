@@ -5,3 +5,6 @@ assets/erg-logo-source.png
 # Local Netlify folder
 .netlify
 .gstack/
+
+# Internal batch run-configs (never publish)
+blog/*-run-config.json
