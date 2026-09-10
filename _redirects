@@ -2,7 +2,11 @@
 /home/            /                            301!
 /services         /#services                   301!
 /services/        /#services                   301!
-/about-us         /leadership/                 301!
-/about-us/        /leadership/                 301!
+/about-us         /leadership                  301!
+/about-us/        /leadership                  301!
 /client-access    https://elite.clientconnectaccess.com/  301!
 /client-access/   https://elite.clientconnectaccess.com/  301!
+/contact-us       /contact                     301!
+/contact-us/      /contact                     301!
+/pay-bill         /pay-dispute                 301!
+/pay-bill/        /pay-dispute                 301!
