@@ -10,3 +10,7 @@
 /contact-us/      /contact                     301!
 /pay-bill         /pay-dispute                 301!
 /pay-bill/        /pay-dispute                 301!
+/termsconditions  /terms-of-service            301!
+/termsconditions/ /terms-of-service            301!
+/privacypolicy    /privacy-policy              301!
+/privacypolicy/   /privacy-policy              301!
