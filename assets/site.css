@@ -2102,3 +2102,60 @@ cite {
     font-size: 0.875rem;
   }
 }
+
+/* ---------- Phone bar (separate client vs account-holder lines) ---------- */
+
+.phone-bar {
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+.phone-bar-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  min-height: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 28px;
+  padding: 6px 0;
+}
+
+.phone-bar-item {
+  white-space: nowrap;
+}
+
+.phone-bar-label {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.phone-bar a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phone-bar a:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 640px) {
+  .phone-bar-inner {
+    width: calc(100% - 32px);
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .phone-bar-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+}
