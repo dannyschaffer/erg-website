@@ -13,6 +13,7 @@
   --orange-wash: rgba(240, 75, 22, 0.08);
 
   --font-sans: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  --font-header: "Open Sans", Arial, Helvetica, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 
   --radius-sm: 6px;
@@ -157,10 +158,10 @@ p {
   align-items: center;
   gap: 18px;
   color: var(--ink);
-  font-family: var(--font-mono);
+  font-family: var(--font-header);
   font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -185,7 +186,17 @@ p {
 }
 
 .nav-actions .button {
+  gap: 10px;
+  font-family: var(--font-header);
   font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.nav-actions .button::after {
+  content: "\2192";
+  font-size: 1.1em;
+  line-height: 1;
 }
 
 .phone-link {
@@ -2108,36 +2119,58 @@ cite {
 .phone-bar {
   background: var(--ink);
   color: #fff;
-  font-family: var(--font-mono);
+  font-family: var(--font-header);
   font-size: 0.8125rem;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .phone-bar-inner {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  min-height: 36px;
+  min-height: 40px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 4px 28px;
+  gap: 4px 18px;
   padding: 6px 0;
 }
 
 .phone-bar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   white-space: nowrap;
 }
 
 .phone-bar-label {
-  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
-  margin-right: 6px;
+}
+
+.pb-icon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+}
+
+.pb-phone {
+  width: 14px;
+  height: 14px;
+  color: var(--orange);
+}
+
+.phone-bar-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .phone-bar a {
   color: #fff;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
@@ -2145,17 +2178,21 @@ cite {
   color: var(--orange);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .phone-bar-inner {
     width: calc(100% - 32px);
+    display: grid;
+    grid-template-columns: auto auto;
     justify-content: center;
-    font-size: 0.75rem;
+    gap: 4px 14px;
+    font-size: 0.6875rem;
   }
-}
 
-@media (max-width: 420px) {
-  .phone-bar-inner {
-    flex-direction: column;
-    align-items: center;
+  .phone-bar-divider {
+    display: none;
+  }
+
+  .phone-bar a {
+    font-size: 0.875rem;
   }
 }
