@@ -8,3 +8,6 @@ assets/erg-logo-source.png
 
 # Internal batch run-configs (never publish)
 blog/*-run-config.json
+
+# Secrets (never publish)
+.env
