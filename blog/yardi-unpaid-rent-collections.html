@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBLJHTSCV7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JBLJHTSCV7');
+    </script>
+    <title>Collecting Unpaid Rent with Yardi: How to Recover Written-Off Resident Balances | Elite Recovery Group</title>
+    <meta
+      name="description"
+      content="How Yardi Voyager and Breeze handle move-out balances and write-offs, what the Yardi Collections API does and doesn&#x27;t confirm, how to place an account by export, and how to post recoveries."
+    >
+    <link rel="canonical" href="https://ergroupllc.com/blog/yardi-unpaid-rent-collections">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Collecting Unpaid Rent with Yardi: How to Recover Written-Off Resident Balances">
+    <meta property="og:description" content="A guide for Yardi Voyager and Breeze users: move-out accounting, write-offs, the Collections API, placing balances without an integration, Reg F data and posting recoveries gross.">
+    <meta property="og:url" content="https://ergroupllc.com/blog/yardi-unpaid-rent-collections">
+    <meta property="og:image" content="https://ergroupllc.com/assets/erg-logo-badge-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Collecting Unpaid Rent with Yardi Voyager and Breeze">
+    <meta name="twitter:description" content="A guide for Yardi Voyager and Breeze users: move-out accounting, write-offs, the Collections API, placing balances without an integration, Reg F data and posting recoveries gross.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Collecting Unpaid Rent with Yardi: How to Recover Written-Off Resident Balances",
+  "description": "How Yardi Voyager and Breeze handle move-out balances and write-offs, what the Yardi Collections API does and doesn't confirm, how to place an account by export, and how to post recoveries.",
+  "image": "https://ergroupllc.com/assets/erg-logo-badge-512.png",
+  "author": {
+    "@type": "Person",
+    "name": "Shawn Juarez",
+    "jobTitle": "Managing Director, US Collections and Growth",
+    "url": "https://www.linkedin.com/in/shawn-juarez-21b418338",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Elite Recovery Group"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elite Recovery Group",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ergroupllc.com/assets/erg-logo-badge-512.png"
+    }
+  },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "mainEntityOfPage": "https://ergroupllc.com/blog/yardi-unpaid-rent-collections",
+  "wordCount": 2226,
+  "keywords": "Yardi unpaid rent collections, Yardi Voyager collections, Yardi Breeze collections, Yardi Collections API, Yardi write off, Yardi move out statement, Yardi deposit accounting, MITS collections interface, Voyager 8 Collections Dashboard, posting collection recoveries, gross vs net recovery, bad debt recovery accounting, Regulation F itemization date, Metro 2, FTC Safeguards Rule, resident recovery, collection agency for property managers"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Yardi have a built-in collections module?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voyager tracks collections history on the resident record, Voyager 8 adds a Collections Dashboard for delinquency, and the Collections API sends placed accounts to a third party. Yardi itself doesn't act as a collection agency for former-resident balances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Yardi Breeze integrate with collection agencies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not through any published collections API. Yardi says Breeze is built to minimize outside integrations, so Breeze users usually place accounts by exporting the ledger, final statement and lease."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does writing off a balance in Yardi mean the resident no longer owes it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A Voyager write-off creates a reversing accounting transaction. It changes how the balance shows in receivables, not whether the former resident legally owes it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Yardi Debt Manager used for resident debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Yardi Debt Manager manages real estate loans and investment debt for owners. It has nothing to do with unpaid rent or former-resident balances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a former resident still pay through RentCafe after move-out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes. It depends on whether the account stays payable and portal-enabled in your setup. Yardi doesn't publicly confirm post-move-out portal access, so check your configuration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who pays for the Yardi Collections API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yardi charges interface partners an annual license fee per interface, sometimes transaction-based. What you pay for the module or setup isn't published, so check your Yardi order form and the partner's agreement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I email a collections file exported from Yardi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avoid it. Send resident files by SFTP or a secure portal. The FTC Safeguards Rule covers collection agencies and expects encryption, access controls and oversight of service providers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there published data on delinquency among Yardi clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No public dataset reports resident delinquency or recovery rates for Voyager or Breeze clients. Yardi Matrix publishes multifamily loan delinquency, which measures owners' mortgages, not residents' rent."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+      .tool-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1rem; }
+      .tool-chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: .4rem .9rem; font: inherit; font-size: .95rem; cursor: pointer; }
+      .tool-chip[aria-pressed="true"] { background: var(--ink-black, #111); color: #fff; border-color: var(--ink-black, #111); }
+      .tool-field { display: grid; gap: .3rem; margin: 0 0 .9rem; font-weight: 600; }
+      .tool-field input, .tool-field select { font: inherit; font-weight: 400; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 8px; max-width: 22rem; }
+      .tool-out { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+      .tool-out p { margin: 0 0 .5rem; }
+      .tool-check label { display: flex; gap: .6rem; align-items: baseline; padding: .45rem 0; border-top: 1px solid var(--line); }
+      .tool-check label:first-child { border-top: 0; }
+      .tool-check input { margin-top: 3px; }
+      .is-hidden { display: none; }
+      .expert-quote { margin: 2rem 0; padding: 1.25rem 1.5rem; border-left: 4px solid var(--orange, #e8590c); background: #faf8f5; border-radius: 0 12px 12px 0; }
+      .expert-quote blockquote { font-size: clamp(1.1rem, .5vw + 1rem, 1.3rem); }
+      .expert-quote figcaption { margin-top: .6rem; font-size: .95rem; color: #5b6573; }
+      @media (max-width: 640px) { .tool-field input, .tool-field select { max-width: 100%; } .expert-quote { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header">
+      <div class="phone-bar">
+        <div class="phone-bar-inner">
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm368 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352h117.3C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg><span class="phone-bar-label">Clients</span></span>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <a class="phone-bar-item" href="tel:+14808407595"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-840-7595</a>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v32h576V96c0-35.3-28.7-64-64-64H64zm512 192H0v192c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><span class="phone-bar-label">Account holders &amp; payments</span></span>
+          <a class="phone-bar-item" href="tel:+14808471323"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-847-1323</a>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html" aria-label="Elite Recovery Group home">
+          <img src="../assets/erg-logo-badge-256.png" alt="Elite Recovery Group">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button" href="../contact.html">Book recovery review</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mobilePanel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">Clients: 480-840-7595</a>
+          <a href="tel:+14808471323">Account holders &amp; payments: 480-847-1323</a>
+          <a class="button" href="../contact.html">Book recovery review</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+
+      <section class="page-intro">
+        <div class="section-inner">
+          <p class="eyebrow">Software guide</p>
+          <h1>Collecting Unpaid Rent with Yardi: How to Recover Written-Off Resident Balances</h1>
+          <p class="page-intro-lede">
+            Yardi is very good at moving a resident out and writing off what they owe. What happens to that balance next is up to you. This guide covers how Voyager and Breeze handle former-resident balances, what Yardi's Collections API does and doesn't confirm, how to place an account with no integration at all, and how to post the money when it comes back.
+          </p>
+          <div class="article-meta">
+            <img class="article-meta-avatar" src="../assets/leadership-shawn-juarez.jpg" alt="">
+            <span><strong>Shawn Juarez</strong>, Managing Director, US Collections and Growth &middot; <a href="https://www.linkedin.com/in/shawn-juarez-21b418338" target="_blank" rel="noopener">LinkedIn</a></span>
+            <span>&middot;</span>
+            <span>Published October 29, 2026</span>
+            <span>&middot;</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner article-body">
+          <aside class="quick-answer">
+            <strong>Quick answer</strong>
+            <p>Yardi handles the move-out accounting and the write-off; collecting the balance is up to you or a collection partner. Voyager has a MITS-based Collections API that lets an approved third party receive resident, lease and balance data and documents over SFTP (<a href="https://www.yardi.com/company/find-an-interface-partner/" target="_blank" rel="noopener">Yardi</a>). Yardi doesn't publicly confirm that payments or status updates post back. Breeze has no published collections API. You don't need an integration to place an account: export the pre-write-off ledger, the move-out statement and the lease, send them securely, and post recoveries gross, with the commission as a separate expense.</p>
+          </aside>
+
+          <div class="article-stat-grid">
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">5</span>
+              <span class="article-stat-grid-label">Reg F itemization dates a collector can choose from</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">SFTP</span>
+              <span class="article-stat-grid-label">How the Voyager Collections API sends documents</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">0</span>
+              <span class="article-stat-grid-label">Published Breeze collections APIs</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">~15M</span>
+              <span class="article-stat-grid-label">Units on Yardi, U.S. and Canada (2026 independent estimate)</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">30 days</span>
+              <span class="article-stat-grid-label">FTC breach notice deadline for 500+ consumers</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">2</span>
+              <span class="article-stat-grid-label">Events to record separately: the write-off and the recovery</span>
+            </div>
+          </div>
+
+          <h2>What Yardi Does With a Former Resident's Balance</h2>
+          <p>
+            Yardi Voyager handles the move-out accounting and the write-off. Collecting the balance after that is left to you or to whoever you place it with. Yardi describes Voyager Residential as one platform that combines property and financial data and includes move-out management (<a href="https://www.yardi.com/product/voyager-residential/" target="_blank" rel="noopener">Yardi Voyager Residential</a>; <a href="https://www.yardi.com/resources/voyager-residential-brochure/pdf/" target="_blank" rel="noopener">Voyager brochure</a>). In practice, the move-out sequence most multifamily teams run in Voyager looks like this:
+          </p>
+          <ol>
+            <li>Change the resident to past status.</li>
+            <li>Run deposit accounting: apply the security deposit, final prorations, and damage or cleaning charges.</li>
+            <li>Capture the forwarding address.</li>
+            <li>Post the accounting and print the itemized move-out statement.</li>
+            <li>Write off what's left, once you've decided it won't be paid in-house.</li>
+          </ol>
+          <p>
+            Final utility bills can land in the same step. Yardi's utility billing product folds the final bill into deposit accounting and posts it to the resident's ledger before the deposit is returned (<a href="https://www.yardi.com/product/utility-billing/" target="_blank" rel="noopener">Yardi Utility Billing</a>). The name of the resident-facing document varies by setup: "move-out statement," "final account statement" and "security deposit disposition" all show up, so use whatever your database prints.
+          </p>
+          <p>
+            The write-off is an accounting entry, not a decision about whether the debt exists. Voyager's charge write-off creates a reversing transaction and a receipt for it, filtered by property, resident, charge code and date (<a href="http://yardi.genessy.com/voyager60/Help/Core%20User's%20Guide/Charge%20Write-Offs.html" target="_blank" rel="noopener">Voyager help, public copy</a>), and Yardi's 2026 training says residential write-offs use system-defined charge-code mappings (<a href="https://www.yardi.com/wp-content/uploads/sites/27/2026/03/yasc-class-descriptions.pdf" target="_blank" rel="noopener">Yardi YASC 2026</a>). Which bad-debt or allowance accounts get hit depends on your own charge-code and general ledger setup. The practical lesson: <strong>save the ledger before you write it off</strong>, because the write-off changes how the balance looks, and the pre-write-off ledger is what a collector needs.
+          </p>
+
+          <h2>Voyager vs. Breeze for Collections</h2>
+          <p>
+            Voyager and Breeze both handle move-outs and write-offs, but only Voyager has a published collections interface. Breeze is built to keep outside integrations to a minimum (<a href="https://www.yardibreeze.com/blog/2023/06/honest-answers-property-management-software-questions/" target="_blank" rel="noopener">Yardi Breeze</a>), so Breeze users should plan on a report-and-export workflow.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Yardi Voyager vs. Yardi Breeze for former-resident balances (public documentation, October 2026)</caption>
+              <thead>
+                <tr><th scope="col">Capability</th><th scope="col">Voyager</th><th scope="col">Breeze / Breeze Premier</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Move-out workflow</td><td>Deposit accounting and itemized move-out statement</td><td>Streamlined move-in and move-out workflows (<a href="https://resources.yardi.com/documents/yardi-breeze-brochure/" target="_blank" rel="noopener">Breeze brochure</a>)</td></tr>
+                <tr><td>Ledger write-off</td><td>Charge-level write-off with a reversing transaction</td><td>Write-off of partially paid charges (<a href="https://www.yardibreeze.com/blog/difficulty/basic/" target="_blank" rel="noopener">Breeze training</a>); posting details not public</td></tr>
+                <tr><td>Collections tracking</td><td>Collections history on the resident record; Voyager 8 adds a Collections Dashboard</td><td>"Manage delinquencies and collections" (<a href="https://www.yardibreeze.com/residential-features/" target="_blank" rel="noopener">Breeze features</a>); no public spec</td></tr>
+                <tr><td>Collections API</td><td>Yes, MITS-based (<a href="https://www.yardi.com/company/find-an-interface-partner/" target="_blank" rel="noopener">Yardi interface partners</a>)</td><td>Not confirmed</td></tr>
+                <tr><td>Online resident payments</td><td>RentCafe and Yardi Payment Processing post to the ledger</td><td>Online payments through the resident portal, by edition</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            The Voyager 8 Collections Dashboard is a delinquency tool for current residents. Yardi says it gives a real-time view of payment activity by combining balances, statuses and charge codes (<a href="https://www.yardi.com/blog/voyager-8-multifamily-reporting-collections-renewals/" target="_blank" rel="noopener">Yardi, Voyager 8</a>). Don't confuse a dashboard status with a placement status: they only line up if your configuration maps them. That's the main confusion about Yardi and collections, and it's the one the interface clears up.
+          </p>
+
+          <h2>The Yardi Collections API: What's Confirmed and What Isn't</h2>
+          <p>
+            Yardi's standard connector for collections is the Collections API, based on the MITS data standard. Here is what Yardi publicly says it does:
+          </p>
+          <figure class="expert-quote">
+            <blockquote>"Third party can receive resident, lease and balances information from Voyager."</blockquote>
+            <figcaption>Yardi, <a href="https://www.yardi.com/company/find-an-interface-partner/" target="_blank" rel="noopener">Find an Interface Partner: Collections API</a></figcaption>
+          </figure>
+          <p>
+            The same listing says lease documents and other files can be sent over SFTP. That confirms an outbound placement channel. Yardi does not publish the API's field list, schedule or status map, so treat the rest as something to confirm in writing:
+          </p>
+          <ul>
+            <li><strong>Automated placement:</strong> partly confirmed. Voyager tracks collections history per resident and the API can send the account, but whether placement is instant, batched or manually released depends on setup.</li>
+            <li><strong>Payments posted back to the ledger:</strong> not confirmed for the Collections API. Yardi confirms automatic ledger posting for its own Payment Processing, which is a different product (<a href="https://www.yardi.com/product/payment-processing-residential/" target="_blank" rel="noopener">Yardi Payment Processing</a>).</li>
+            <li><strong>Status updates back to Voyager:</strong> not confirmed publicly.</li>
+            <li><strong>Recalling a placed account:</strong> not confirmed publicly. Don't confuse this with reversing an ACH payment, which Yardi's payment terms do cover (<a href="https://resources.yardi.com/legal/breeze/pps-tou/" target="_blank" rel="noopener">Yardi payment terms</a>).</li>
+          </ul>
+          <p>
+            Cost is also less clear than it looks. Yardi's interface partner program charges the partner an annual license fee per interface, sometimes transaction-based, and requires a data exchange agreement, development against a Voyager sandbox and a pilot client before general release (<a href="https://www.yardi.com/company/become-an-interface-partner/" target="_blank" rel="noopener">Yardi Interface Partner Program</a>). It doesn't say what you, the property manager, pay for the module or setup, so check your Yardi order form. Current setup guides live in Yardi Client Central (<a href="https://clientcentral.yardi.com/" target="_blank" rel="noopener">Client Central</a>). An interface is convenient, but it isn't required.
+          </p>
+
+          <h2>How to Place a Yardi Balance Without an Integration</h2>
+          <p>
+            You don't need the Collections API to send a balance to collections. Every Voyager and Breeze database can produce what a collector actually works from: the resident's identity, the lease, the final statement and the ledger. The export just has to be complete and sent securely.
+          </p>
+          <ol>
+            <li><strong>Wait out the deposit deadline.</strong> Send the itemized statement first. Placement doesn't replace your state's deposit accounting (see our guide to <a href="./security-deposits-and-move-out-charges.html">security deposits and move-out charges</a>).</li>
+            <li><strong>Export the pre-write-off ledger.</strong> Run the resident ledger before the write-off posts, or filter to show the original charges.</li>
+            <li><strong>Print the move-out statement</strong> exactly as it was sent, with the date it went out.</li>
+            <li><strong>Pull the lease and addenda</strong> from the resident's documents, plus the application if it holds guarantor or employer details.</li>
+            <li><strong>Note the itemization date</strong> you can support: usually the date of the final statement (more on that below).</li>
+            <li><strong>Flag anything that stops collection:</strong> disputes, bankruptcy, a deceased resident, active military, or an attorney representing the resident.</li>
+            <li><strong>Send by SFTP or a secure portal,</strong> never as an ordinary email attachment.</li>
+          </ol>
+          <p>
+            Our list of <a href="./what-documents-does-a-collection-agency-need.html">documents a collection agency needs</a> goes through each item, and our guide on <a href="./when-to-send-unpaid-rent-to-collections.html">when to send unpaid rent to collections</a> covers timing. Sending the account is half the job. The other half is recording what comes back.
+          </p>
+
+          <h2>Posting Recoveries Back to Yardi: Gross vs. Net</h2>
+          <p>
+            Record recoveries gross. Post the full amount the former resident paid, show the collection commission as its own expense, and let the cash line match the bank deposit. Posting only the net check understates both what you recovered and what recovery cost you.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Recording a $1,000 recovery with a $300 commission</caption>
+              <thead>
+                <tr><th scope="col">Line</th><th scope="col">Amount</th><th scope="col">How to record it</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Gross recovery</td><td>$1,000</td><td>Reinstate the written-off receivable, or record a recovery, for the full payment</td></tr>
+                <tr><td>Commission</td><td>$300</td><td>Collection expense, per owner policy</td></tr>
+                <tr><td>Cash</td><td>$700</td><td>Matches the remittance deposit</td></tr>
+                <tr><td>Resident balance</td><td>Down $1,000</td><td>Reduced by what the resident paid, not by the cash you received</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Under the allowance method, standard accounting reinstates the receivable first and then records the cash against it (<a href="https://openstax.org/books/principles-financial-accounting/pages/9-2-account-for-uncollectible-accounts-using-the-balance-sheet-and-income-statement-approaches" target="_blank" rel="noopener">OpenStax, Principles of Financial Accounting</a>). Add the commission debit so the credit to the resident's receivable equals the gross payment. For tax, the IRS treats a recovered bad debt you deducted earlier as income to the extent the deduction gave you a tax benefit (<a href="https://www.irs.gov/publications/p334" target="_blank" rel="noopener">IRS Publication 334</a>). Have your controller sign off on the mapping, because management agreements and owner reports differ.
+          </p>
+          <p>
+            Each month, match four numbers: gross payments the collector reports, recovery receipts posted in Yardi, commission posted to expense, and net deposits in the bank reconciliation. If those tie out, owners can trust the recovery line. Our guide to <a href="./how-asset-managers-measure-bad-debt-recovery.html">how asset managers measure bad debt recovery</a> covers the KPIs they'll look at.
+          </p>
+
+          <h2>What a Yardi Placement File Needs for Reg F and Credit Reporting</h2>
+          <p>
+            Regulation F requires a collector to give the former resident validation information, including an itemization from a fixed date to the current balance. The collector picks one of five reference dates: the last statement date, charge-off date, last payment date, transaction date or judgment date, and has to use it consistently afterwards (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1006/34/" target="_blank" rel="noopener">CFPB, 12 CFR 1006.34</a>). The itemization shows interest, fees, payments and credits since that date, even when a line is zero (<a href="https://files.consumerfinance.gov/f/documents/cfpb_debt-collection_disclosing-the-MVN-itemization-table.pdf" target="_blank" rel="noopener">CFPB itemization guidance</a>).
+          </p>
+          <p>
+            For a Yardi account, the final move-out statement date is usually the cleanest choice, as long as you can reproduce that statement and the balance on that date. That's why the pre-write-off ledger matters. Our explainer on the <a href="./reg-f-itemization-date.html">Reg F itemization date</a> goes deeper.
+          </p>
+          <p>
+            Credit reporting needs more. Metro 2, the industry's reporting format, carries account status, date of first delinquency, balance history and consumer identifiers (<a href="https://files.consumerfinance.gov/f/201212_cfpb_credit-reporting-white-paper.pdf" target="_blank" rel="noopener">CFPB credit reporting white paper</a>; <a href="https://www.cdiaonline.org/metro-2-format-essentials-plus/" target="_blank" rel="noopener">CDIA</a>), and whoever furnishes the data must keep written accuracy procedures and handle disputes under Regulation V (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1022/" target="_blank" rel="noopener">CFPB, 12 CFR 1022</a>). Yardi's public Collections API description doesn't say it produces a Metro 2 file, so the collector has to build that from your export.
+          </p>
+
+          <h2>Keeping Resident Data Secure When It Leaves Yardi</h2>
+          <p>
+            Yardi's cloud is audited (Yardi says it provides annual SOC 2 and twice-yearly SOC 1 reports, <a href="https://www.yardi.com/company/cloud-security/" target="_blank" rel="noopener">Yardi Cloud Security</a>), but once you export a file, its security depends on you and the recipient. The FTC Safeguards Rule expressly covers collection agencies and requires encryption, multifactor authentication, access controls and oversight of service providers (<a href="https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know" target="_blank" rel="noopener">FTC</a>). A covered business must also tell the FTC within 30 days of discovering a breach of unencrypted data affecting 500 or more people (<a href="https://www.ftc.gov/business-guidance/blog/2024/05/safeguards-rule-notification-requirement-now-effect" target="_blank" rel="noopener">FTC, 2024</a>).
+          </p>
+          <ul>
+            <li>Send files by SFTP or a secure portal, never as plain email attachments.</li>
+            <li>Send only the fields and documents needed to collect.</li>
+            <li>Ask the recipient for a current SOC 2 Type II report or equivalent.</li>
+            <li>Put retention, deletion and breach-notice terms in the contract.</li>
+            <li>Log every export and who received it.</li>
+          </ul>
+
+          <h2>How Big Is Yardi in Multifamily?</h2>
+          <p>
+            Yardi is one of the largest multifamily platforms, but there's no audited, current U.S. market share. A Yardi-hosted interview claimed customers represent roughly half the U.S. multifamily market (<a href="https://www.yardiinvestmentsuite.com/resources/2023/08/pere-keynote-interview-creating-efficiency-in-u-s-multifamily" target="_blank" rel="noopener">Yardi Investment Suite</a>), and a 2026 independent count put about 15 million residential units on Yardi across the U.S. and Canada (<a href="https://propexo.com/blog/what-the-largest-multifamily-operators-run/" target="_blank" rel="noopener">Propexo</a>). Neither figure is audited. We also found no public data on delinquency or bad debt among Yardi clients, so measure your own: write-offs as a share of gross potential rent, gross and net recovery on placed debt, and days from move-out to placement. The <a href="./rental-debt-recovery-statistics.html">rental debt recovery statistics</a> page collects the public benchmarks that do exist.
+          </p>
+
+          <h2>Placing Yardi Balances With Elite Recovery Group</h2>
+          <p>
+            Elite Recovery Group works from a standard Yardi export: the move-out statement, the pre-write-off ledger and the lease are enough to start, with no interface to set up. For how Yardi compares with the other platforms on collections, see our <a href="./property-management-software-collections.html">property management software comparison</a> and the <a href="./appfolio-unpaid-rent-collections.html">AppFolio</a>, <a href="./realpage-unpaid-rent-collections.html">RealPage</a> and <a href="./buildium-unpaid-rent-collections.html">Buildium</a> guides. If you're weighing tools against people, our guide to <a href="./ai-rent-collection-software.html">AI rent collection software</a> covers what automation can and can't do before move-out.
+          </p>
+
+          <div class="knowledge-check" id="ydCheck">
+            <strong>Yardi placement file checklist</strong>
+            <p>Tick each item as you build the file for one account. Progress is saved in this browser only; nothing is sent anywhere.</p>
+            <div class="tool-check">
+              <label><input type="checkbox" data-k="1"> Saved the resident ledger before the write-off posted (or filtered to show original charges)</label>
+              <label><input type="checkbox" data-k="2"> Exported the itemized move-out statement exactly as sent, with its date</label>
+              <label><input type="checkbox" data-k="3"> Confirmed the state deposit deadline was met (TX 30 days, AZ 14 business days, UT 30 days, OR 31 days)</label>
+              <label><input type="checkbox" data-k="4"> Pulled the lease, addenda and application (guarantor and employer details)</label>
+              <label><input type="checkbox" data-k="5"> Captured the forwarding address, phone and email</label>
+              <label><input type="checkbox" data-k="6"> Noted the Reg F itemization date you can support (usually the final statement date)</label>
+              <label><input type="checkbox" data-k="7"> Checked for disputes, bankruptcy, active military, a deceased resident or an attorney letter</label>
+              <label><input type="checkbox" data-k="8"> Attached move-out photos, inspection and invoices for damage charges</label>
+              <label><input type="checkbox" data-k="9"> Sent the file by SFTP or a secure portal, not plain email</label>
+              <label><input type="checkbox" data-k="10"> Agreed how recoveries will post: gross payment, commission as expense, net cash</label>
+            </div>
+            <p class="kc-result is-visible" id="ydCount" aria-live="polite"></p>
+            <button type="button" class="tool-chip" id="ydReset">Clear checklist</button>
+          </div>
+
+          <aside class="key-takeaways">
+            <strong>Key takeaways</strong>
+            <ul>
+              <li>A Yardi write-off is an accounting entry, not proof the debt is gone; save the pre-write-off ledger before it posts.</li>
+              <li>Voyager's Collections API sends resident, lease and balance data plus documents over SFTP; payment and status posting back aren't publicly confirmed.</li>
+              <li>Breeze is designed to minimize integrations, so plan on a report-and-export workflow.</li>
+              <li>You can place any Yardi balance without an integration if the file is complete and sent securely.</li>
+              <li>Post recoveries gross: the full payment against the resident, the commission as an expense, and cash matching the deposit.</li>
+              <li>The final move-out statement date is usually the cleanest Regulation F itemization date for a Yardi account.</li>
+              <li>No public data shows Yardi clients' delinquency or recovery rates, so track your own.</li>
+            </ul>
+          </aside>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <ul class="faq-list">
+            <li class="faq-item">
+              <details>
+                <summary>Does Yardi have a built-in collections module?</summary>
+                <p>Voyager tracks collections history on the resident record, Voyager 8 adds a Collections Dashboard for delinquency, and the Collections API sends placed accounts to a third party. Yardi itself doesn't act as a collection agency for former-resident balances.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Does Yardi Breeze integrate with collection agencies?</summary>
+                <p>Not through any published collections API. Yardi says Breeze is built to minimize outside integrations, so Breeze users usually place accounts by exporting the ledger, final statement and lease.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Does writing off a balance in Yardi mean the resident no longer owes it?</summary>
+                <p>No. A Voyager write-off creates a reversing accounting transaction. It changes how the balance shows in receivables, not whether the former resident legally owes it.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Is Yardi Debt Manager used for resident debt?</summary>
+                <p>No. Yardi Debt Manager manages real estate loans and investment debt for owners. It has nothing to do with unpaid rent or former-resident balances.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can a former resident still pay through RentCafe after move-out?</summary>
+                <p>Sometimes. It depends on whether the account stays payable and portal-enabled in your setup. Yardi doesn't publicly confirm post-move-out portal access, so check your configuration.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Who pays for the Yardi Collections API?</summary>
+                <p>Yardi charges interface partners an annual license fee per interface, sometimes transaction-based. What you pay for the module or setup isn't published, so check your Yardi order form and the partner's agreement.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can I email a collections file exported from Yardi?</summary>
+                <p>Avoid it. Send resident files by SFTP or a secure portal. The FTC Safeguards Rule covers collection agencies and expects encryption, access controls and oversight of service providers.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Is there published data on delinquency among Yardi clients?</summary>
+                <p>No public dataset reports resident delinquency or recovery rates for Voyager or Breeze clients. Yardi Matrix publishes multifamily loan delinquency, which measures owners' mortgages, not residents' rent.</p>
+              </details>
+            </li>
+          </ul>
+
+          <p class="article-related">
+            Related: <a href="./appfolio-unpaid-rent-collections.html">Collecting Unpaid Rent with AppFolio</a> · <a href="./realpage-unpaid-rent-collections.html">Collecting Unpaid Rent with RealPage</a> · <a href="./buildium-unpaid-rent-collections.html">Collecting Unpaid Rent with Buildium</a> · <a href="./property-management-software-collections.html">Property Management Software for Collections</a> · <a href="./reg-f-itemization-date.html">Reg F Itemization Date</a> · <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta-wrap">
+          <div>
+            <h2>Turn your Yardi write-offs back into recovered rent.</h2>
+            <p>
+              Book a recovery review with Elite Recovery Group. Send a standard Yardi export and we'll show you what's collectible, how placement works and how recoveries will post back to your books.
+            </p>
+          </div>
+          <aside class="contact-card" aria-label="Elite Recovery Group contact information">
+            <a class="contact-line" href="tel:+14808407595">480-840-7595</a>
+            <a class="contact-line" href="https://ergroupllc.com">ergroupllc.com</a>
+            <address class="contact-address">1616 E Main St, STE 230<br>Mesa, AZ 85203</address>
+            <div class="contact-person">
+              <strong>Shawn Juarez</strong>
+              <span>Managing Director, US Collections and Growth</span>
+            </div>
+            <div class="contact-person">
+              <strong>Anton Vukic</strong>
+              <span>VP of Global Business Partnerships</span>
+            </div>
+            <a class="button" href="../contact.html#callback">Request a callback</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <span class="footer-brand">
+            <img src="../assets/erg-logo-badge-256.png" alt="" aria-hidden="true">
+            Elite Recovery Group, Specialist Property Collections
+          </span>
+          <p class="footer-tagline">Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer solutions">
+          <strong class="footer-col-heading">Solutions</strong>
+          <a href="../rental-debt-collection.html">Rental Debt Collection</a>
+          <a href="../collection-agency-for-landlords.html">Collection Agency for Landlords</a>
+          <a href="../unpaid-rent-collection-agency.html">Unpaid Rent Collection Agency</a>
+          <a href="../tenant-collection-agency.html">Tenant Collection Agency</a>
+          <a href="../best-collection-agency-for-unpaid-rent.html">Best Collection Agency for Unpaid Rent</a>
+          <a href="../property-management-collections.html">Property Management Collections</a>
+          <a href="../rental-collection-services.html">Rental Collection Services</a>
+          <a href="../move-out-debt-collection.html">Move-Out Debt Collection</a>
+          <a href="../eviction-cost-recovery.html">Eviction Cost Recovery</a>
+          <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          <a href="../collection-agency-for-asset-managers.html">Collection Agency for Asset Managers</a>
+          <a href="../outsource-rent-collections.html">Outsource Rent Collections</a>
+          <a href="../fdcpa-compliant-collection-agency.html">FDCPA Compliant Collection Agency</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer company">
+          <strong class="footer-col-heading">Company</strong>
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer account">
+          <strong class="footer-col-heading">Account</strong>
+          <a href="../pay-dispute.html">Pay Bill</a>
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../assets/site.js"></script>
+    <script>
+      (function () {
+        var box = document.getElementById('ydCheck');
+        if (!box) return;
+        var KEY = 'erg-yardi-placement-checklist';
+        var boxes = box.querySelectorAll('input[type="checkbox"]');
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+        function update() {
+          var done = 0, state = {};
+          boxes.forEach(function (b) { if (b.checked) { done++; state[b.getAttribute('data-k')] = 1; } });
+          document.getElementById('ydCount').textContent = done + ' of ' + boxes.length + ' items ready.' + (done === boxes.length ? ' This file is ready to place.' : '');
+          try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+        }
+        boxes.forEach(function (b) {
+          if (saved[b.getAttribute('data-k')]) b.checked = true;
+          b.addEventListener('change', update);
+        });
+        document.getElementById('ydReset').addEventListener('click', function () {
+          boxes.forEach(function (b) { b.checked = false; });
+          update();
+        });
+        update();
+      })();
+    </script>
+  </body>
+</html>

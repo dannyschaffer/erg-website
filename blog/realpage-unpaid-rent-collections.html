@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBLJHTSCV7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JBLJHTSCV7');
+    </script>
+    <title>Collecting Unpaid Rent with RealPage: Recovering OneSite Resident Balances | Elite Recovery Group</title>
+    <meta
+      name="description"
+      content="How RealPage OneSite handles final account statements and collection status, what RealPage&#x27;s payment and AI tools cover, how to place balances without an integration, and how to report recoveries."
+    >
+    <link rel="canonical" href="https://ergroupllc.com/blog/realpage-unpaid-rent-collections">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Collecting Unpaid Rent with RealPage: Recovering OneSite Resident Balances">
+    <meta property="og:description" content="A guide for OneSite operators: final account statements, collection status, RealPage Exchange, placing balances by export, owner reporting and data duties, with a recovery posting calculator.">
+    <meta property="og:url" content="https://ergroupllc.com/blog/realpage-unpaid-rent-collections">
+    <meta property="og:image" content="https://ergroupllc.com/assets/erg-logo-badge-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Collecting Unpaid Rent with RealPage OneSite">
+    <meta name="twitter:description" content="A guide for OneSite operators: final account statements, collection status, RealPage Exchange, placing balances by export, owner reporting and data duties, with a recovery posting calculator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Collecting Unpaid Rent with RealPage: Recovering OneSite Resident Balances",
+  "description": "How RealPage OneSite handles final account statements and collection status, what RealPage's payment and AI tools cover, how to place balances without an integration, and how to report recoveries.",
+  "image": "https://ergroupllc.com/assets/erg-logo-badge-512.png",
+  "author": {
+    "@type": "Person",
+    "name": "Shawn Juarez",
+    "jobTitle": "Managing Director, US Collections and Growth",
+    "url": "https://www.linkedin.com/in/shawn-juarez-21b418338",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Elite Recovery Group"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elite Recovery Group",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ergroupllc.com/assets/erg-logo-badge-512.png"
+    }
+  },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "mainEntityOfPage": "https://ergroupllc.com/blog/realpage-unpaid-rent-collections",
+  "wordCount": 2049,
+  "keywords": "RealPage unpaid rent collections, RealPage OneSite collections, OneSite final account statement, RealPage Exchange, RPX collections integration, RealPage Payments, RealPage Rent Reporting, Lumina AI resident agent, collection status OneSite, bad debt recovery reporting, gross vs net recovery, owner reporting recoveries, Regulation F itemization date, data controller resident data, multifamily resident recovery, collection agency for property managers"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does RealPage offer a debt collection service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We found no current RealPage page confirming that RealPage collects former-resident debt. Its tools for delinquency, including RealPage Payments, AI reminders, AI Screening and Rent Reporting, work while the resident still lives there or before move-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does RealPage Rent Reporting report unpaid balances to credit bureaus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It's an optional $4.99 a month subscription residents choose to report on-time rent payments to Equifax, Experian and TransUnion. It isn't a collections tradeline, and RealPage says it isn't a credit bureau."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Final Account Statement in OneSite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's the move-out document OneSite builds from the final account balance, balance at move-out, deposits, refunded amounts, and additional charges, credits and payments. It's the core document for any collection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can OneSite keep a resident out of collections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Integration guides describe a resident-level collection status with an option to exclude the account, for example when the resident is on a payment agreement. Labels vary by version and configuration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a RealPage Exchange integration to use a collection agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A Final Account Statement, the resident ledger and the lease, sent securely, are enough to place an account. An integration can save time at volume, but it isn't required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is responsible for resident data sent to a collector from OneSite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You are. RealPage's privacy policy describes RealPage as a service provider and its clients as the data controllers who decide how resident data is used, so the decision to share, and to vet the recipient, is yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the RealPage antitrust case affect collections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not directly. The Justice Department's case concerns RealPage's revenue management pricing software, not how operators collect former-resident balances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should recovered rent appear on owner statements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross is clearest: show the full amount the former resident paid as recovered, the collection commission as a separate expense, and the net cash deposited. Posting only the net check understates both the recovery and its cost."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+      .tool-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1rem; }
+      .tool-chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: .4rem .9rem; font: inherit; font-size: .95rem; cursor: pointer; }
+      .tool-chip[aria-pressed="true"] { background: var(--ink-black, #111); color: #fff; border-color: var(--ink-black, #111); }
+      .tool-field { display: grid; gap: .3rem; margin: 0 0 .9rem; font-weight: 600; }
+      .tool-field input, .tool-field select { font: inherit; font-weight: 400; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 8px; max-width: 22rem; }
+      .tool-out { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+      .tool-out p { margin: 0 0 .5rem; }
+      .tool-check label { display: flex; gap: .6rem; align-items: baseline; padding: .45rem 0; border-top: 1px solid var(--line); }
+      .tool-check label:first-child { border-top: 0; }
+      .tool-check input { margin-top: 3px; }
+      .is-hidden { display: none; }
+      .expert-quote { margin: 2rem 0; padding: 1.25rem 1.5rem; border-left: 4px solid var(--orange, #e8590c); background: #faf8f5; border-radius: 0 12px 12px 0; }
+      .expert-quote blockquote { font-size: clamp(1.1rem, .5vw + 1rem, 1.3rem); }
+      .expert-quote figcaption { margin-top: .6rem; font-size: .95rem; color: #5b6573; }
+      @media (max-width: 640px) { .tool-field input, .tool-field select { max-width: 100%; } .expert-quote { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header">
+      <div class="phone-bar">
+        <div class="phone-bar-inner">
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm368 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352h117.3C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg><span class="phone-bar-label">Clients</span></span>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <a class="phone-bar-item" href="tel:+14808407595"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-840-7595</a>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v32h576V96c0-35.3-28.7-64-64-64H64zm512 192H0v192c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><span class="phone-bar-label">Account holders &amp; payments</span></span>
+          <a class="phone-bar-item" href="tel:+14808471323"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-847-1323</a>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html" aria-label="Elite Recovery Group home">
+          <img src="../assets/erg-logo-badge-256.png" alt="Elite Recovery Group">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button" href="../contact.html">Book recovery review</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mobilePanel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">Clients: 480-840-7595</a>
+          <a href="tel:+14808471323">Account holders &amp; payments: 480-847-1323</a>
+          <a class="button" href="../contact.html">Book recovery review</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+
+      <section class="page-intro">
+        <div class="section-inner">
+          <p class="eyebrow">Software guide</p>
+          <h1>Collecting Unpaid Rent with RealPage: Recovering OneSite Resident Balances</h1>
+          <p class="page-intro-lede">
+            RealPage gives multifamily operators strong tools for collecting rent from current residents. Once a resident moves out owing money, the balance sits on a OneSite Final Account Statement and the next steps are yours. This guide covers what OneSite records, what RealPage does and doesn't sell for recovery, how to place an account with or without an integration, and how to report what comes back.
+          </p>
+          <div class="article-meta">
+            <img class="article-meta-avatar" src="../assets/leadership-shawn-juarez.jpg" alt="">
+            <span><strong>Shawn Juarez</strong>, Managing Director, US Collections and Growth &middot; <a href="https://www.linkedin.com/in/shawn-juarez-21b418338" target="_blank" rel="noopener">LinkedIn</a></span>
+            <span>&middot;</span>
+            <span>Published October 29, 2026</span>
+            <span>&middot;</span>
+            <span>11 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner article-body">
+          <aside class="quick-answer">
+            <strong>Quick answer</strong>
+            <p>OneSite records a former resident's balance on the Final Account Statement, which lists the move-out balance, deposits, refunds and later charges, credits and payments (<a href="https://onesite.realpage.com/rents/new_RESIDENT/WizardsObjectOriented/FinalAccountStatement/wizardPage_Statement.htm" target="_blank" rel="noopener">RealPage OneSite</a>). RealPage's payments, AI reminders, screening and rent reporting work before move-out; we found no RealPage service that collects former-resident debt. To recover a balance, mark the account for collections, exclude anyone on a payment agreement, export the statement with its attachments plus the ledger and lease, and send it securely. Book recoveries gross, with the commission as a separate expense.</p>
+          </aside>
+
+          <div class="article-stat-grid">
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">5</span>
+              <span class="article-stat-grid-label">Reg F itemization dates a collector can choose from</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">$4.99</span>
+              <span class="article-stat-grid-label">Monthly price of RealPage Rent Reporting, paid by residents</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">30M+</span>
+              <span class="article-stat-grid-label">Lease-outcome records RealPage says AI Screening uses</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">13M+</span>
+              <span class="article-stat-grid-label">Units RealPage says Market Analytics covers</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">0</span>
+              <span class="article-stat-grid-label">RealPage services found that collect former-resident debt</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">Gross</span>
+              <span class="article-stat-grid-label">How we recommend booking recoveries</span>
+            </div>
+          </div>
+
+          <h2>What OneSite Does at Move-Out</h2>
+          <p>
+            In RealPage OneSite, a former resident's balance lives on the Final Account Statement. OneSite's move-out wizard builds that statement from the final account balance, the balance at move-out, deposits, refunded amounts, and additional charges, credits and payments, and it supports an edited final balance (<a href="https://onesite.realpage.com/rents/new_RESIDENT/WizardsObjectOriented/FinalAccountStatement/wizardPage_Statement.htm" target="_blank" rel="noopener">RealPage OneSite help</a>). RealPage calls OneSite its flagship multifamily system and the central source of data for a landlord's leasing activity (<a href="https://www.sec.gov/Archives/edgar/data/1286225/000128622521000007/rp-20201231.htm" target="_blank" rel="noopener">RealPage 10-K, 2020</a>).
+          </p>
+          <p>
+            The statement is also where evidence belongs. RealPage's OneSite Document Management add-on lets teams upload images directly to final account statements, and RealPage positions that as a way to support bad debt recovery. Move-out photos, invoices and the inspection attached to the statement travel with the account when you place it, which makes disputes much easier to answer.
+          </p>
+          <p>
+            Write-offs are less clearly documented. We found no public OneSite help page that shows a single standard write-off screen, journal entry or recovery account, so check your version's close-out and bad-debt procedure with RealPage support or your implementation team. At company level, RealPage's own filings describe receivables written off against an allowance and report "write-offs, net of recoveries" (<a href="https://www.sec.gov/Archives/edgar/data/1286225/000128622521000007/rp-20201231.htm" target="_blank" rel="noopener">RealPage 10-K</a>). That's corporate accounting language, but it's the right model for your properties too: the write-off and a later recovery are two separate events.
+          </p>
+
+          <h2>Collection Status in OneSite</h2>
+          <p>
+            OneSite can flag a resident account for collections. Integration guides published by collection vendors describe a resident-level "special/collection status" action with options such as "in collection status" and "payment agreement/exclude from collections." Those guides aren't RealPage documentation, and labels vary by version and configuration, so check your own screens before writing a procedure around them.
+          </p>
+          <p>
+            The exclude option is the one to use carefully. A resident on a payment agreement, in a dispute or covered by a legal hold shouldn't be placed, and marking them excluded in OneSite keeps them out of any batch placement. Building that check into your move-out close-out prevents the most common placement mistake: sending an account the site team already settled. Before getting to placement, though, it helps to know which tools RealPage itself offers.
+          </p>
+
+          <h2>What RealPage Sells for Delinquency, and What It Doesn't</h2>
+          <p>
+            RealPage's delinquency tools work before move-out: payments, reminders, screening and rent reporting. We found no current RealPage page saying RealPage itself collects former-resident debt.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>RealPage products that touch delinquency (vendor descriptions, October 2026)</caption>
+              <thead>
+                <tr><th scope="col">Product</th><th scope="col">What RealPage says it does</th><th scope="col">After move-out?</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>RealPage Payments</td><td>Integrated with OneSite Leasing &amp; Rents; payments, late fees and NSFs post to the resident ledger in real time (<a href="https://www.realpage.com/videos/make-electronic-rent-payment-processing-easy/" target="_blank" rel="noopener">RealPage</a>)</td><td>Only if the account can still take payments</td></tr>
+                <tr><td>Online payments</td><td>ACH, card, scheduled and auto-pay, reminders, and flexible payments through Livble (<a href="https://www.realpage.com/online-payments/" target="_blank" rel="noopener">RealPage</a>)</td><td>Current residents</td></tr>
+                <tr><td>Rent Reporting</td><td>Optional $4.99 a month resident subscription that reports on-time rent to Equifax, Experian and TransUnion (<a href="https://www.realpage.com/apartment-marketing/rent-reporting/" target="_blank" rel="noopener">RealPage</a>)</td><td>No; it's not a collections tradeline</td></tr>
+                <tr><td>AI Screening</td><td>Predictive scoring drawing on more than 30 million lease-outcome records (<a href="https://www.realpage.com/apartment-marketing/resident-screening/ai-screening/" target="_blank" rel="noopener">RealPage</a>)</td><td>No; it works before move-in</td></tr>
+                <tr><td>Lumina AI resident agent</td><td>Sends rent reminders and follows up on overdue and small-balance charges (<a href="https://www.realpage.com/apartment-marketing/resident-experience/ai-resident-agent/" target="_blank" rel="noopener">RealPage</a>; <a href="https://www.realpage.com/platforms/lumina-ai/" target="_blank" rel="noopener">Lumina AI</a>)</td><td>Current residents</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Rent Reporting is the one people mix up. It reports a current resident's on-time payments, by the resident's choice. It doesn't report an unpaid balance after move-out, and RealPage says it isn't a credit bureau. Our guide to <a href="./ai-rent-collection-software.html">AI rent collection software</a> covers the pre-move-out tools in more depth. After move-out, the question becomes how a balance gets out of OneSite.
+          </p>
+
+          <h2>RealPage Exchange and Collector Integrations</h2>
+          <p>
+            RealPage Exchange (RPX) is RealPage's integration marketplace, offering "secure, standardized APIs across all RealPage products" (<a href="https://www.realpage.com/exchange/" target="_blank" rel="noopener">RealPage Exchange</a>). Its partner APIs include functions such as inserting invoices and payments into RealPage Accounting. RealPage doesn't publish a field-level collections placement API, and we couldn't confirm from RealPage sources whether a collector's recovered payments post back automatically through RPX, as a manual ledger payment, or through an accounting import.
+          </p>
+          <p>
+            If you are evaluating an integration, get these in writing before go-live:
+          </p>
+          <ul>
+            <li>Which fields leave OneSite, and how often.</li>
+            <li>Whether the Final Account Statement and its attachments go with the account.</li>
+            <li>How collection status updates come back, if they do.</li>
+            <li>How recovered payments post: gross or net, with what transaction identifier.</li>
+            <li>How a recall or a paid-in-full account is handled.</li>
+            <li>The reconciliation report you'll get each month.</li>
+          </ul>
+          <p>
+            None of that is needed to start, though. A clean export works today.
+          </p>
+
+          <h2>Placing a OneSite Balance Without an Integration</h2>
+          <p>
+            Every OneSite property can place a balance by export. What matters is that the file is complete and that excluded accounts stay out.
+          </p>
+          <ol>
+            <li><strong>Close out the deposit first.</strong> Send the itemized statement within your state's deadline. Our guide to <a href="./security-deposits-and-move-out-charges.html">security deposits and move-out charges</a> lists them.</li>
+            <li><strong>Check the exclusions.</strong> Skip anyone on a payment agreement, in a dispute, in bankruptcy, or represented by an attorney.</li>
+            <li><strong>Export the Final Account Statement</strong> with its attached photos and invoices.</li>
+            <li><strong>Export the resident ledger</strong> showing every charge, payment and credit, before any write-off.</li>
+            <li><strong>Attach the lease and addenda,</strong> plus the application for guarantor and employer details.</li>
+            <li><strong>Note the statement date.</strong> It is usually the Regulation F itemization date the collector will use.</li>
+            <li><strong>Send securely</strong> by SFTP or portal, and log the export.</li>
+          </ol>
+          <figure class="expert-quote">
+            <blockquote>"Itemization date means any one of the following five reference dates for which a debt collector can ascertain the amount of the debt."</blockquote>
+            <figcaption>Regulation F, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1006/subpart-B/section-1006.34" target="_blank" rel="noopener">12 CFR 1006.34(b)(3)</a></figcaption>
+          </figure>
+          <p>
+            The five dates are the last statement date, charge-off date, last payment date, transaction date and judgment date (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1006/34/" target="_blank" rel="noopener">CFPB</a>). OneSite's Final Account Statement already holds what the collector needs to itemize from that date: the move-out balance, deposits applied, and charges, credits and payments since. Our explainer on the <a href="./reg-f-itemization-date.html">Reg F itemization date</a> and our list of <a href="./what-documents-does-a-collection-agency-need.html">documents a collection agency needs</a> cover the rest. Once money comes back, it has to land in the right accounts.
+          </p>
+
+          <h2>Recording Recoveries for Owner Reporting</h2>
+          <p>
+            Decide how recoveries will be booked before you place the first account, not after the first check arrives. RealPage doesn't publish a standard bad-debt recovery reconciliation report, so define these yourself:
+          </p>
+          <ul>
+            <li>The accounts for bad-debt expense, the allowance, written-off receivables and recovery income.</li>
+            <li>Whether a recovery reinstates the written-off receivable first or goes straight to recovery income.</li>
+            <li>How the collector's commission and the net remittance are recorded.</li>
+            <li>Which report ties each recovery to the resident, property, charge code, write-off date and owner entity.</li>
+            <li>Whether owner statements show recoveries gross or net of collection costs.</li>
+          </ul>
+          <p>
+            We recommend gross: post the full payment against the resident, record the commission as an expense, and match cash to the deposit. Owners then see the true recovery and the true cost. The calculator below shows both views for any recovery. Our guide to <a href="./how-asset-managers-measure-bad-debt-recovery.html">how asset managers measure bad debt recovery</a> explains why gross recovery and net recovery are reported as separate KPIs.
+          </p>
+
+          <div class="knowledge-check" id="recCalc">
+            <strong>Recovery posting calculator</strong>
+            <p>Enter one recovery to see how it should post gross, and what an owner report would miss if you posted only the net check. Nothing is stored or sent anywhere.</p>
+            <label class="tool-field">Amount the former resident paid ($)
+              <input id="rcGross" type="number" min="0" step="10" value="1000">
+            </label>
+            <label class="tool-field">Collection commission (%)
+              <input id="rcFee" type="number" min="0" max="100" value="30">
+            </label>
+            <label class="tool-field">Original written-off balance ($)
+              <input id="rcBal" type="number" min="0" step="10" value="2500">
+            </label>
+            <button type="button" class="button" id="rcRun">Show the entries</button>
+            <div class="tool-out is-hidden" id="rcOut" aria-live="polite"></div>
+          </div>
+
+          <h2>You Decide What Leaves OneSite</h2>
+          <p>
+            Under RealPage's privacy policy, RealPage generally acts as a service provider for owners and managers, and the client is the data controller that decides how resident data is used (<a href="https://www.realpage.com/legal/privacy-policy/" target="_blank" rel="noopener">RealPage privacy policy</a>). When you place an account, the decision to share that data is yours, and so is the duty to vet whoever receives it.
+          </p>
+          <ul>
+            <li><strong>Regulation F:</strong> the collector must send validation information with the itemization described above (<a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1006" target="_blank" rel="noopener">12 CFR Part 1006</a>). Our guide to <a href="./fdcpa-vs-regulation-f.html">FDCPA vs. Regulation F</a> explains who's covered.</li>
+            <li><strong>Credit reporting:</strong> if the balance will be reported, confirm in writing who furnishes it, in Metro 2 format, with dispute handling and updates when it's paid or recalled (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1022/" target="_blank" rel="noopener">Regulation V</a>). RealPage's public materials don't show a collections tradeline product.</li>
+            <li><strong>Security:</strong> the FTC Safeguards Rule covers collection agencies and requires encryption, MFA, access controls and service-provider oversight (<a href="https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know" target="_blank" rel="noopener">FTC</a>). Ask for a SOC 2 Type II report and a data agreement that bars any use beyond collecting your balances.</li>
+          </ul>
+
+          <h2>RealPage's Place in the Multifamily Market</h2>
+          <p>
+            There's no single, uncontested market share figure for OneSite. The Justice Department alleged in 2024 that RealPage holds about 80% of the market for commercial revenue management software for multifamily, but that's an allegation about pricing software, not property management systems (<a href="https://www.justice.gov/archives/opa/pr/justice-department-sues-realpage-algorithmic-pricing-scheme-harms-millions-american-renters" target="_blank" rel="noopener">U.S. Department of Justice</a>). The 2025 proposed final judgment describes penetration for RealPage products, OneSite included, ranging from about 30% to 78% in the markets it defines (<a href="https://www.federalregister.gov/documents/2025/01/30/2025-01886/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact" target="_blank" rel="noopener">Federal Register</a>). RealPage says its Market Analytics data covers more than 13 million units in more than 400 markets (<a href="https://www.realpage.com/insights-analytics/market-analytics/" target="_blank" rel="noopener">RealPage</a>), a vendor figure.
+          </p>
+          <p>
+            We found no current public RealPage report giving a portfolio-wide delinquency or recovery rate. RealPage's AI Screening page cites a 1.7% delinquency figure for its screening customers during the pandemic, which is a historical vendor claim, not a benchmark. Track your own numbers instead: write-offs as a share of potential rent, gross and net recovery on placed accounts, and days from move-out to placement. Our <a href="./rental-debt-recovery-statistics.html">rental debt recovery statistics</a> page collects the public figures that exist.
+          </p>
+
+          <h2>Placing RealPage Balances With Elite Recovery Group</h2>
+          <p>
+            Elite Recovery Group works from a standard OneSite export: the Final Account Statement with its attachments, the resident ledger and the lease are enough to start, with no interface to set up. For how RealPage compares with other platforms on collections, see our <a href="./property-management-software-collections.html">property management software comparison</a>, and for the other systems, the <a href="./yardi-unpaid-rent-collections.html">Yardi</a>, <a href="./appfolio-unpaid-rent-collections.html">AppFolio</a> and <a href="./buildium-unpaid-rent-collections.html">Buildium</a> guides. Our explainer on <a href="./what-is-resident-recovery.html">resident recovery</a> covers how post-move-out collection fits into a multifamily operation.
+          </p>
+
+          <aside class="key-takeaways">
+            <strong>Key takeaways</strong>
+            <ul>
+              <li>The OneSite Final Account Statement is the document a collector, court or disputing resident looks at first; attach photos and invoices to it.</li>
+              <li>OneSite can flag accounts for collections or exclude them; labels vary by version, so check your own screens.</li>
+              <li>RealPage's payments, AI reminders, screening and rent reporting work before move-out; none collects a former resident's balance.</li>
+              <li>Rent Reporting is an opt-in resident subscription for on-time payments; it doesn't report unpaid balances.</li>
+              <li>RealPage Exchange offers APIs, but the collections payload and payment posting back aren't publicly documented.</li>
+              <li>You're the data controller: you decide what leaves OneSite and you must vet who receives it.</li>
+              <li>Define recovery accounts and gross-versus-net reporting before placing the first account.</li>
+            </ul>
+          </aside>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <ul class="faq-list">
+            <li class="faq-item">
+              <details>
+                <summary>Does RealPage offer a debt collection service?</summary>
+                <p>We found no current RealPage page confirming that RealPage collects former-resident debt. Its tools for delinquency, including RealPage Payments, AI reminders, AI Screening and Rent Reporting, work while the resident still lives there or before move-in.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Does RealPage Rent Reporting report unpaid balances to credit bureaus?</summary>
+                <p>No. It's an optional $4.99 a month subscription residents choose to report on-time rent payments to Equifax, Experian and TransUnion. It isn't a collections tradeline, and RealPage says it isn't a credit bureau.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>What is a Final Account Statement in OneSite?</summary>
+                <p>It's the move-out document OneSite builds from the final account balance, balance at move-out, deposits, refunded amounts, and additional charges, credits and payments. It's the core document for any collection.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can OneSite keep a resident out of collections?</summary>
+                <p>Yes. Integration guides describe a resident-level collection status with an option to exclude the account, for example when the resident is on a payment agreement. Labels vary by version and configuration.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Do I need a RealPage Exchange integration to use a collection agency?</summary>
+                <p>No. A Final Account Statement, the resident ledger and the lease, sent securely, are enough to place an account. An integration can save time at volume, but it isn't required.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Who is responsible for resident data sent to a collector from OneSite?</summary>
+                <p>You are. RealPage's privacy policy describes RealPage as a service provider and its clients as the data controllers who decide how resident data is used, so the decision to share, and to vet the recipient, is yours.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Does the RealPage antitrust case affect collections?</summary>
+                <p>Not directly. The Justice Department's case concerns RealPage's revenue management pricing software, not how operators collect former-resident balances.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How should recovered rent appear on owner statements?</summary>
+                <p>Gross is clearest: show the full amount the former resident paid as recovered, the collection commission as a separate expense, and the net cash deposited. Posting only the net check understates both the recovery and its cost.</p>
+              </details>
+            </li>
+          </ul>
+
+          <p class="article-related">
+            Related: <a href="./yardi-unpaid-rent-collections.html">Collecting Unpaid Rent with Yardi</a> · <a href="./appfolio-unpaid-rent-collections.html">Collecting Unpaid Rent with AppFolio</a> · <a href="./buildium-unpaid-rent-collections.html">Collecting Unpaid Rent with Buildium</a> · <a href="./property-management-software-collections.html">Property Management Software for Collections</a> · <a href="./what-is-resident-recovery.html">What Is Resident Recovery?</a> · <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta-wrap">
+          <div>
+            <h2>Recover more of what OneSite writes off.</h2>
+            <p>
+              Book a recovery review with Elite Recovery Group. Send a standard OneSite export and we'll show you what's collectible, how placement works and how recoveries will appear on your owner reports.
+            </p>
+          </div>
+          <aside class="contact-card" aria-label="Elite Recovery Group contact information">
+            <a class="contact-line" href="tel:+14808407595">480-840-7595</a>
+            <a class="contact-line" href="https://ergroupllc.com">ergroupllc.com</a>
+            <address class="contact-address">1616 E Main St, STE 230<br>Mesa, AZ 85203</address>
+            <div class="contact-person">
+              <strong>Shawn Juarez</strong>
+              <span>Managing Director, US Collections and Growth</span>
+            </div>
+            <div class="contact-person">
+              <strong>Anton Vukic</strong>
+              <span>VP of Global Business Partnerships</span>
+            </div>
+            <a class="button" href="../contact.html#callback">Request a callback</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <span class="footer-brand">
+            <img src="../assets/erg-logo-badge-256.png" alt="" aria-hidden="true">
+            Elite Recovery Group, Specialist Property Collections
+          </span>
+          <p class="footer-tagline">Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer solutions">
+          <strong class="footer-col-heading">Solutions</strong>
+          <a href="../rental-debt-collection.html">Rental Debt Collection</a>
+          <a href="../collection-agency-for-landlords.html">Collection Agency for Landlords</a>
+          <a href="../unpaid-rent-collection-agency.html">Unpaid Rent Collection Agency</a>
+          <a href="../tenant-collection-agency.html">Tenant Collection Agency</a>
+          <a href="../best-collection-agency-for-unpaid-rent.html">Best Collection Agency for Unpaid Rent</a>
+          <a href="../property-management-collections.html">Property Management Collections</a>
+          <a href="../rental-collection-services.html">Rental Collection Services</a>
+          <a href="../move-out-debt-collection.html">Move-Out Debt Collection</a>
+          <a href="../eviction-cost-recovery.html">Eviction Cost Recovery</a>
+          <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          <a href="../collection-agency-for-asset-managers.html">Collection Agency for Asset Managers</a>
+          <a href="../outsource-rent-collections.html">Outsource Rent Collections</a>
+          <a href="../fdcpa-compliant-collection-agency.html">FDCPA Compliant Collection Agency</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer company">
+          <strong class="footer-col-heading">Company</strong>
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer account">
+          <strong class="footer-col-heading">Account</strong>
+          <a href="../pay-dispute.html">Pay Bill</a>
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../assets/site.js"></script>
+    <script>
+      (function () {
+        var btn = document.getElementById('rcRun');
+        if (!btn) return;
+        function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+        function val(id) { return Math.max(0, parseFloat(document.getElementById(id).value) || 0); }
+        btn.addEventListener('click', function () {
+          var g = val('rcGross'), f = Math.min(100, val('rcFee')) / 100, b = val('rcBal');
+          var fee = g * f, net = g - fee, left = Math.max(0, b - g);
+          var out = document.getElementById('rcOut');
+          out.innerHTML = '<p><strong>Gross posting (recommended):</strong></p>' +
+            '<p>Reinstate or record recovery of ' + money(g) + ' against the resident. Debit cash ' + money(net) + ' and collection expense ' + money(fee) + '; credit the resident receivable ' + money(g) + '.</p>' +
+            '<p><strong>Remaining balance on the account:</strong> ' + money(left) + (b ? ' (' + Math.round(g / b * 100) + '% of the written-off balance recovered so far)' : '') + '</p>' +
+            '<p><strong>If you posted only the net check:</strong> the owner report would show ' + money(net) + ' recovered instead of ' + money(g) + ', the ' + money(fee) + ' cost to collect would disappear, and the resident balance would be overstated by ' + money(fee) + '.</p>' +
+            '<p>This is an illustration of standard allowance-method entries. Have your controller confirm the account mapping in OneSite.</p>';
+          out.classList.remove('is-hidden');
+        });
+      })();
+    </script>
+  </body>
+</html>
