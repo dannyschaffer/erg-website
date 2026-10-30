@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBLJHTSCV7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JBLJHTSCV7');
+    </script>
+    <title>30-Second Recovery Scorecard | Elite Recovery Group</title>
+    <meta
+      name="description"
+      content="Enter two figures to see your portfolio recovery rate, how it compares to a 15% benchmark, and the dollars left unrecovered at four target rates."
+    >
+    <!-- Outreach tool, linked from emails and LinkedIn; kept out of search -->
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://ergroupllc.com/recovery-score">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/site.css">
+    <style>
+      .rs-intro h1 { max-width: 22ch; }
+      .rs-calc { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+      .rs-inputs { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+      .rs-input { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: var(--space-md); background: var(--white); }
+      .rs-input label { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-black); }
+      .rs-num { color: var(--orange); font-family: var(--font-mono); margin-right: 6px; }
+      .rs-hint { margin: 4px 0 var(--space-sm); color: var(--muted); font-size: 0.875rem; }
+      .rs-field { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--orange-soft); padding: 0 14px; }
+      .rs-field:focus-within { outline: 2px solid var(--orange); outline-offset: 1px; }
+      .rs-field span { font-family: var(--font-mono); font-weight: 600; color: var(--muted); font-size: 1.25rem; }
+      .rs-field input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 14px 0; font-family: var(--font-mono); font-size: 1.5rem; font-weight: 600; color: var(--ink-black); outline: none; }
+      .rs-share { display: flex; align-items: flex-start; gap: 10px; margin: 0; color: var(--muted); font-size: 0.9375rem; line-height: 1.5; cursor: pointer; }
+      .rs-share input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--orange); }
+      .rs-actions { margin-top: var(--space-md); }
+      .rs-actions .button { border: none; cursor: pointer; min-height: 52px; padding: 0 28px; font-size: 0.875rem; }
+      .form-row select { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 1rem; }
+      .form-row select:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+      .rs-error { margin: var(--space-xs) 0 0; color: #c8102e; font-weight: 600; font-size: 0.9375rem; }
+      .rs-results { margin-top: var(--space-md); display: grid; grid-template-columns: repeat(3, 1fr); background: var(--ink-black); color: var(--white); border-radius: var(--radius-md); }
+      .rs-stat { padding: var(--space-md); text-align: center; display: flex; flex-direction: column; gap: 10px; }
+      .rs-stat + .rs-stat { border-left: 1px solid var(--line-dark); }
+      .rs-stat-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.78); }
+      .rs-stat-value { font-family: var(--font-mono); font-size: 2rem; line-height: 1.15; color: var(--white); }
+      .rs-tier { font-family: var(--font-sans); font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.03em; align-self: center; padding: 6px 12px; border-radius: var(--radius-sm); }
+      .rs-tier.is-below { background: #c8102e; }
+      .rs-tier.is-room { background: var(--orange); }
+      .rs-tier.is-good { background: #1f7a46; }
+      .rs-band { margin-top: var(--space-md); display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap; background: var(--orange); color: var(--white); border-radius: var(--radius-md); padding: 14px var(--space-md); font-family: var(--font-sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+      .rs-band-sub { font-size: 0.75rem; opacity: 0.9; }
+      .rs-targets { margin-top: var(--space-sm); display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
+      .rs-target { border: 1px solid var(--ink-black); border-top-width: 8px; border-radius: var(--radius-md); background: var(--soft); padding: var(--space-sm); text-align: center; display: flex; flex-direction: column; gap: 10px; }
+      .rs-target-label { font-family: var(--font-sans); font-weight: 700; text-transform: uppercase; color: var(--ink-black); }
+      .rs-target strong { font-family: var(--font-mono); font-size: 1.5rem; color: #c8102e; }
+      .rs-target-foot { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #c8102e; }
+      .rs-notes { margin-top: var(--space-md); padding-top: var(--space-sm); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8125rem; line-height: 1.6; max-width: none; }
+      .rs-details { padding-top: var(--space-xl); background: var(--soft); }
+      .rs-offer { margin-bottom: var(--space-lg); padding: var(--space-md); border-left: 4px solid var(--orange); border-radius: var(--radius-sm); background: var(--white); }
+      .rs-offer-title { margin: 0 0 var(--space-xs); font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; color: var(--ink-black); }
+      .rs-offer ul { margin: 0; padding-left: 1.25rem; display: grid; gap: 8px; }
+      .rs-offer-foot { margin: var(--space-sm) 0 0; color: var(--muted); font-size: 0.9375rem; max-width: none; }
+      .rs-sent { grid-column: 1 / -1; margin: 0; font-weight: 600; color: #1f7a46; }
+      @media (max-width: 900px) {
+        .rs-targets { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .rs-inputs, .rs-results { grid-template-columns: 1fr; }
+        .rs-stat + .rs-stat { border-left: 0; border-top: 1px solid var(--line-dark); }
+        .rs-stat-value { font-size: 1.75rem; }
+        .rs-stat-value.rs-tier { font-size: 1.125rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header">
+      <div class="phone-bar">
+        <div class="phone-bar-inner">
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm368 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352h117.3C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg><span class="phone-bar-label">Clients</span></span>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <a class="phone-bar-item" href="tel:+14808407595"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-840-7595</a>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v32h576V96c0-35.3-28.7-64-64-64H64zm512 192H0v192c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><span class="phone-bar-label">Account holders &amp; payments</span></span>
+          <a class="phone-bar-item" href="tel:+14808471323"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-847-1323</a>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="./index.html" aria-label="Elite Recovery Group home">
+          <img src="./assets/erg-logo-badge-256.png" alt="Elite Recovery Group">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="./compliance.html">Compliance</a>
+          <a href="./leadership.html">Leadership</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact</a>
+          <a class="utility-link" href="./pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button" href="#details">Get my comparison</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mobilePanel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a href="./compliance.html">Compliance</a>
+          <a href="./leadership.html">Leadership</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact</a>
+          <a class="utility-link" href="./pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">Clients: 480-840-7595</a>
+          <a href="tel:+14808471323">Account holders &amp; payments: 480-847-1323</a>
+          <a class="button" href="#details">Get my comparison</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="page-intro rs-intro">
+        <div class="section-inner">
+          <p class="eyebrow">30-second recovery scorecard</p>
+          <h1>What is your portfolio really recovering?</h1>
+          <p class="page-intro-lede">
+            Enter two figures. Your recovery rate, how it compares to a 15% benchmark, and the dollars left on the table at four targets calculate instantly.
+          </p>
+        </div>
+      </section>
+
+      <section class="rs-calc">
+        <div class="section-inner">
+          <div class="rs-inputs">
+            <div class="rs-input">
+              <label for="rs-debt"><span class="rs-num">01</span> Total debt placed</label>
+              <p class="rs-hint">Same accounts and reporting period</p>
+              <div class="rs-field"><span aria-hidden="true">$</span><input id="rs-debt" type="text" inputmode="decimal" autocomplete="off" placeholder="500,000"></div>
+            </div>
+            <div class="rs-input">
+              <label for="rs-recovered"><span class="rs-num">02</span> Gross amount recovered</label>
+              <p class="rs-hint">Collected on those placed accounts</p>
+              <div class="rs-field"><span aria-hidden="true">$</span><input id="rs-recovered" type="text" inputmode="decimal" autocomplete="off" placeholder="45,000"></div>
+            </div>
+          </div>
+          <p class="rs-error" id="rs-error" role="alert" hidden></p>
+          <div class="rs-actions"><button class="button" type="button" id="rs-go">Get my score</button></div>
+
+          <div id="rs-out" hidden>
+          <div class="rs-results" aria-live="polite">
+            <div class="rs-stat">
+              <span class="rs-stat-label">Your recovery rate</span>
+              <strong class="rs-stat-value" id="rs-rate">&ndash;</strong>
+            </div>
+            <div class="rs-stat">
+              <span class="rs-stat-label">Vs. 15% recovery average</span>
+              <strong class="rs-stat-value" id="rs-gap">&ndash;</strong>
+            </div>
+            <div class="rs-stat">
+              <span class="rs-stat-label">Your recovery results</span>
+              <strong class="rs-stat-value rs-tier" id="rs-tier">&ndash;</strong>
+            </div>
+          </div>
+
+          <div class="rs-band">
+            <span>Potential additional gross recoveries</span>
+            <span class="rs-band-sub">Four comparison scenarios</span>
+          </div>
+          <div class="rs-targets">
+            <div class="rs-target"><span class="rs-target-label">11% target</span><strong id="rs-t11">&ndash;</strong><span class="rs-target-foot">Potential unrecovered dollars</span></div>
+            <div class="rs-target"><span class="rs-target-label">15% target</span><strong id="rs-t15">&ndash;</strong><span class="rs-target-foot">Potential unrecovered dollars</span></div>
+            <div class="rs-target"><span class="rs-target-label">20% target</span><strong id="rs-t20">&ndash;</strong><span class="rs-target-foot">Potential unrecovered dollars</span></div>
+            <div class="rs-target"><span class="rs-target-label">25% target</span><strong id="rs-t25">&ndash;</strong><span class="rs-target-foot">Potential unrecovered dollars</span></div>
+          </div>
+          </div>
+
+          <p class="rs-notes">
+            Reference: historical NAA guidance cites 15% to 20%; 15% is a comparison target, not a verified national average.
+            11%, 15%, 20% and 25% are scenario targets. Red figures show additional gross recoveries needed to meet each target.
+            The % loss is a percentage-point shortfall vs. 15%, not a dollar loss. Estimates are before fees; not guaranteed.
+            Source: <a href="https://www.naahq.org/news/multifamily-debt-collections-best-practices-owners-and-managers" rel="nofollow noopener" target="_blank">naahq.org</a>.
+          </p>
+        </div>
+      </section>
+
+      <section id="details" class="rs-details">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <h2>How does your recovery rate compare?</h2>
+            </div>
+            <p>
+              Your score shows where you stand against a 15% benchmark. A free Recovery Comparison shows where you stand against companies like yours.
+            </p>
+          </div>
+
+          <div class="rs-offer">
+            <p class="rs-offer-title">Your free Recovery Comparison</p>
+            <ul>
+              <li><strong>How your rate stacks up</strong> against property managers of a similar size, property type and market.</li>
+              <li><strong>What the gap is worth</strong> in dollars on your current placements.</li>
+              <li><strong>The changes most likely to lift it</strong>, from the quality of the files you place to when you place them.</li>
+            </ul>
+            <p class="rs-offer-foot">Prepared for your company by our recovery team and sent to your inbox. No obligation. Prefer to talk? Call 480-840-7595.</p>
+          </div>
+
+          <!-- One Netlify form carries both the automatic "score calculated" ping and the contact request.
+               Every field the script posts must exist here so Netlify registers it at deploy time. -->
+          <form class="callback-form" id="rs-form" name="recovery-score" method="POST" data-netlify="true" netlify-honeypot="company-website">
+            <input type="hidden" name="form-name" value="recovery-score">
+            <input type="hidden" name="event" value="contact-request">
+            <input type="hidden" name="ref" value="">
+            <input type="hidden" name="debt_placed" value="">
+            <input type="hidden" name="amount_recovered" value="">
+            <input type="hidden" name="recovery_rate" value="">
+            <input type="hidden" name="result" value="">
+            <input type="hidden" name="gap_to_15" value="">
+            <input type="hidden" name="figures_shared" value="">
+            <input type="hidden" name="page_url" value="">
+            <p class="hp-field"><label>Don't fill this out if you're human: <input name="company-website"></label></p>
+            <div class="form-row">
+              <label for="rs-name">Name <span aria-hidden="true">*</span></label>
+              <input id="rs-name" name="name" type="text" required>
+            </div>
+            <div class="form-row">
+              <label for="rs-company">Company <span aria-hidden="true">*</span></label>
+              <input id="rs-company" name="company" type="text" required>
+            </div>
+            <div class="form-row">
+              <label for="rs-website">Company website <span aria-hidden="true">*</span></label>
+              <input id="rs-website" name="website" type="text" inputmode="url" placeholder="yourcompany.com" required>
+            </div>
+            <div class="form-row">
+              <label for="rs-units">Units managed</label>
+              <select id="rs-units" name="units">
+                <option value="">Select a range</option>
+                <option>Under 500</option>
+                <option>500 to 2,000</option>
+                <option>2,000 to 10,000</option>
+                <option>10,000+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="rs-email">Work email <span aria-hidden="true">*</span></label>
+              <input id="rs-email" name="email" type="email" required>
+            </div>
+            <div class="form-row">
+              <label for="rs-phone">Phone</label>
+              <input id="rs-phone" name="phone" type="tel">
+            </div>
+            <label class="rs-share form-row-wide"><input type="checkbox" id="rs-share" checked> <span>Include my scorecard figures so the comparison uses my actual numbers. <a href="./privacy-policy.html">Privacy Policy</a></span></label>
+            <button class="button" type="submit">Send my Recovery Comparison</button>
+            <p class="rs-sent" id="rs-sent" role="status" hidden>Thanks. Your Recovery Comparison is on its way.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <span class="footer-brand">
+            <img src="./assets/erg-logo-badge-256.png" alt="" aria-hidden="true">
+            Elite Recovery Group, Specialist Property Collections
+          </span>
+          <p class="footer-tagline">Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer solutions">
+          <strong class="footer-col-heading">Solutions</strong>
+          <a href="./rental-debt-collection.html">Rental Debt Collection</a>
+          <a href="./collection-agency-for-landlords.html">Collection Agency for Landlords</a>
+          <a href="./unpaid-rent-collection-agency.html">Unpaid Rent Collection Agency</a>
+          <a href="./tenant-collection-agency.html">Tenant Collection Agency</a>
+          <a href="./best-collection-agency-for-unpaid-rent.html">Best Collection Agency for Unpaid Rent</a>
+          <a href="./property-management-collections.html">Property Management Collections</a>
+          <a href="./rental-collection-services.html">Rental Collection Services</a>
+          <a href="./move-out-debt-collection.html">Move-Out Debt Collection</a>
+          <a href="./eviction-cost-recovery.html">Eviction Cost Recovery</a>
+          <a href="./collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          <a href="./collection-agency-for-asset-managers.html">Collection Agency for Asset Managers</a>
+          <a href="./outsource-rent-collections.html">Outsource Rent Collections</a>
+          <a href="./fdcpa-compliant-collection-agency.html">FDCPA Compliant Collection Agency</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer company">
+          <strong class="footer-col-heading">Company</strong>
+          <a href="./compliance.html">Compliance</a>
+          <a href="./leadership.html">Leadership</a>
+          <a href="./blog.html">Blog</a>
+          <a href="./contact.html">Contact</a>
+          <a href="./terms-of-service.html">Terms of Service</a>
+          <a href="./privacy-policy.html">Privacy Policy</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer account">
+          <strong class="footer-col-heading">Account</strong>
+          <a href="./pay-dispute.html">Pay Bill</a>
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="./assets/site.js"></script>
+    <script>
+      (function () {
+        var debtEl = document.getElementById('rs-debt');
+        var recEl = document.getElementById('rs-recovered');
+        var form = document.getElementById('rs-form');
+        var errEl = document.getElementById('rs-error');
+        var tierEl = document.getElementById('rs-tier');
+        var shareEl = document.getElementById('rs-share');
+        var FIGURES = ['debt_placed', 'amount_recovered', 'recovery_rate', 'result', 'gap_to_15'];
+        var params = new URLSearchParams(location.search);
+        var ref = params.get('r') || params.get('ref') || '';
+        var goBtn = document.getElementById('rs-go');
+        var outEl = document.getElementById('rs-out');
+        // Google Apps Script web app that appends a row per score (see ERG/recovery-score-sheet-setup.md)
+        var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwNwjR--mHHKSKOq7nWfOsiB-yLEY8YUxTdFaDyUWn5EfXzOeNJTlndtd86OIqdvEImEg/exec';
+        var current = null;
+
+        form.elements.ref.value = ref;
+        form.elements.page_url.value = location.href;
+
+        function parse(v) {
+          var n = parseFloat(String(v).replace(/[^0-9.]/g, ''));
+          return isFinite(n) ? n : NaN;
+        }
+        function money(n) {
+          return '$' + Math.round(n).toLocaleString('en-US');
+        }
+        function set(id, text) {
+          document.getElementById(id).textContent = text;
+        }
+
+        // Same formulas and tiers as Shawn's "ERG 30 Second Scorecard.pdf"
+        function calc() {
+          var placed = parse(debtEl.value);
+          var paid = parse(recEl.value);
+          var valid = placed > 0 && paid >= 0 && paid <= placed;
+          var tooHigh = placed > 0 && paid > placed;
+          errEl.textContent = tooHigh ? "Amount recovered can't be more than total debt placed." : '';
+          errEl.hidden = !tooHigh;
+          tierEl.className = 'rs-stat-value rs-tier';
+          if (!valid) {
+            current = null;
+            ['rs-rate', 'rs-gap', 'rs-tier', 'rs-t11', 'rs-t15', 'rs-t20', 'rs-t25'].forEach(function (id) { set(id, '–'); });
+            return;
+          }
+          var rate = paid / placed;
+          var tier = rate < 0.15 ? 'Below: needs a conversation' : rate < 0.20 ? 'Room for improvement' : rate < 0.25 ? 'Solid' : 'Excellent';
+          var gap = Math.max(0, (0.15 - rate) * 100).toFixed(1) + '% loss';
+          set('rs-rate', (rate * 100).toFixed(1) + '%');
+          set('rs-gap', gap);
+          set('rs-tier', tier);
+          tierEl.classList.add(rate < 0.15 ? 'is-below' : rate < 0.20 ? 'is-room' : 'is-good');
+          [11, 15, 20, 25].forEach(function (t) {
+            set('rs-t' + t, money(Math.max(0, placed * t / 100 - paid)));
+          });
+          current = { debt_placed: money(placed), amount_recovered: money(paid), recovery_rate: (rate * 100).toFixed(1) + '%', result: tier, gap_to_15: gap };
+        }
+
+        // The checkbox sits on the comparison form, so it only governs what that request carries
+        function figures(share) {
+          var out = { figures_shared: share ? 'yes' : 'no' };
+          FIGURES.forEach(function (k) { out[k] = share && current ? current[k] : ''; });
+          return out;
+        }
+
+        function post(fields) {
+          var data = new URLSearchParams();
+          data.append('form-name', 'recovery-score');
+          Object.keys(fields).forEach(function (k) { data.append(k, fields[k]); });
+          return fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() });
+        }
+
+        function toSheet(fields) {
+          if (!SHEET_URL) return;
+          var data = new URLSearchParams(Object.assign({ ref: ref, page_url: location.href }, fields));
+          // no-cors: Apps Script doesn't send CORS headers; we don't need the response
+          fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
+        }
+
+        goBtn.addEventListener('click', function () {
+          calc();
+          if (!current) {
+            if (errEl.hidden) {
+              errEl.textContent = 'Enter both figures to get your score.';
+              errEl.hidden = false;
+            }
+            return;
+          }
+          outEl.hidden = false;
+          goBtn.textContent = 'Update my score';
+          toSheet(Object.assign({ event: 'score-calculated' }, figures(true)));
+          if (window.gtag) gtag('event', 'recovery_score_calculated', { result: current.result, ref: ref || '(none)' });
+        });
+
+        [debtEl, recEl].forEach(function (el) {
+          el.addEventListener('input', function () { if (!outEl.hidden) calc(); else errEl.hidden = true; });
+          el.addEventListener('blur', function () {
+            var n = parse(el.value);
+            if (isFinite(n)) el.value = Math.round(n).toLocaleString('en-US');
+          });
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var fields = {};
+          new FormData(form).forEach(function (v, k) { if (k !== 'form-name') fields[k] = v; });
+          Object.assign(fields, figures(shareEl.checked));
+          fields.event = 'contact-request';
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          post(fields).then(function (res) {
+            if (!res.ok) throw new Error(res.status);
+            toSheet(fields);
+            document.getElementById('rs-sent').hidden = false;
+            btn.hidden = true;
+            if (window.gtag) gtag('event', 'recovery_score_contact', { ref: ref || '(none)' });
+          }).catch(function () {
+            btn.disabled = false;
+            alert('Something went wrong sending that. Please call 480-840-7595.');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
