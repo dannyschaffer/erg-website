@@ -408,6 +408,9 @@
           outEl.hidden = false;
           goBtn.textContent = 'Update my score';
           toSheet(Object.assign({ event: 'score-calculated' }, figures(true)));
+          // Personal link (/score/company): also submit to the Netlify form, so ERG gets the same
+          // email alert as any other form submission. Plain-link scores stay Sheet-only.
+          if (ref) post(Object.assign({ event: 'score-calculated', ref: ref, page_url: location.href }, figures(true))).catch(function () {});
           if (window.gtag) gtag('event', 'recovery_score_calculated', { result: current.result, ref: ref || '(none)' });
         });
 
