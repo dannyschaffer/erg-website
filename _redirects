@@ -14,3 +14,6 @@
 /termsconditions/ /terms-of-service            301!
 /privacypolicy    /privacy-policy              301!
 /privacypolicy/   /privacy-policy              301!
+/score            /recovery-score              301
+/score/           /recovery-score              301
+/score/*          /recovery-score              200
