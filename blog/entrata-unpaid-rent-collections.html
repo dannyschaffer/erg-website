@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBLJHTSCV7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JBLJHTSCV7');
+    </script>
+    <title>Collecting Unpaid Rent with Entrata: How to Recover Written-Off Resident Balances | Elite Recovery Group</title>
+    <meta
+      name="description"
+      content="How Entrata handles former-resident balances, what its delinquency tools and API do and don&#x27;t confirm, how to build a placement file from a standard export, and how to post recoveries."
+    >
+    <link rel="canonical" href="https://ergroupllc.com/blog/entrata-unpaid-rent-collections">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Collecting Unpaid Rent with Entrata: How to Recover Written-Off Resident Balances">
+    <meta property="og:description" content="A guide for Entrata users: move-out accounting, Payments AI vs. post-move-out recovery, the Entrata API, placement exports, Reg F data and posting recoveries gross.">
+    <meta property="og:url" content="https://ergroupllc.com/blog/entrata-unpaid-rent-collections">
+    <meta property="og:image" content="https://ergroupllc.com/assets/erg-logo-badge-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Collecting Unpaid Rent with Entrata">
+    <meta name="twitter:description" content="A guide for Entrata users: move-out accounting, Payments AI vs. post-move-out recovery, the Entrata API, placement exports, Reg F data and posting recoveries gross.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Collecting Unpaid Rent with Entrata: How to Recover Written-Off Resident Balances",
+  "description": "How Entrata handles former-resident balances, what its delinquency tools and API do and don't confirm, how to build a placement file from a standard export, and how to post recoveries.",
+  "image": "https://ergroupllc.com/assets/erg-logo-badge-512.png",
+  "author": {
+    "@type": "Person",
+    "name": "Shawn Juarez",
+    "jobTitle": "Managing Director, US Collections and Growth",
+    "url": "https://www.linkedin.com/in/shawn-juarez-21b418338",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Elite Recovery Group"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elite Recovery Group",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ergroupllc.com/assets/erg-logo-badge-512.png"
+    }
+  },
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "mainEntityOfPage": "https://ergroupllc.com/blog/entrata-unpaid-rent-collections",
+  "wordCount": 2221,
+  "keywords": "Entrata unpaid rent collections, Entrata collections, Entrata final account statement, Entrata write off, Entrata past resident ledger, Entrata API collections, ELI+ Payments AI, ResidentPay late fees, Entrata delinquency dashboard, placing former resident balances, gross vs net recovery, Regulation F itemization date, Metro 2, FTC Safeguards Rule, multifamily bad debt recovery"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Entrata have a built-in collections module for former residents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not one that Entrata documents publicly. Its delinquency tools, including late notices, the delinquency dashboard and Payments AI, are aimed at current residents. Former-resident balances are typically placed with a collector from a ledger export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ELI+ Payments AI collect from residents who already moved out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entrata hasn't confirmed that publicly. Its materials describe reminders, past-due notices and payment-plan conversations with residents through SMS, email and the portal. Once a balance goes to a third-party collector, FDCPA and Regulation F rules apply to the contact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I place an Entrata balance before the deposit deadline passes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Apply the deposit and send the itemized accounting within your state's deadline first: 30 days in Texas and Utah, 14 business days in Arizona and 31 days in Oregon. A balance placed before that is easy to dispute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can former residents still pay through Entrata's ResidentPortal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your configuration keeps their portal access open. Entrata confirms portal payments post to accounting immediately, but access for past residents depends on your setup. Once an account is placed, payments should go through the collector or be reported to it the same day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an Entrata API integration to use a collection agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. An integration can automate placement and posting, but a standard ledger export, the final statement and the lease are enough to place an account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a former resident pays the property directly after placement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Post the payment to the Entrata ledger and tell the collector the same day so it stops contact and adjusts the balance. Whether commission is owed on direct payments depends on your collection agreement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What itemization date should I give the collector for an Entrata account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually the date of the final account statement, as long as you can reproduce that statement and the balance on that date. Regulation F also allows the charge-off, last payment, transaction or judgment date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many units run on Entrata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entrata's 2026 IPO filing reported 2,529,199 U.S. multifamily units as of June 30, 2026, about 10% of the market. That is a company-reported figure."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+      .tool-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1rem; }
+      .tool-chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: .4rem .9rem; font: inherit; font-size: .95rem; cursor: pointer; }
+      .tool-chip[aria-pressed="true"] { background: var(--ink-black, #111); color: #fff; border-color: var(--ink-black, #111); }
+      .tool-field { display: grid; gap: .3rem; margin: 0 0 .9rem; font-weight: 600; }
+      .tool-field input, .tool-field select { font: inherit; font-weight: 400; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 8px; max-width: 22rem; }
+      .tool-out { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+      .tool-out p { margin: 0 0 .5rem; }
+      .tool-check label { display: flex; gap: .6rem; align-items: baseline; padding: .45rem 0; border-top: 1px solid var(--line); }
+      .tool-check label:first-child { border-top: 0; }
+      .tool-check input { margin-top: 3px; }
+      .is-hidden { display: none; }
+      .expert-quote { margin: 2rem 0; padding: 1.25rem 1.5rem; border-left: 4px solid var(--orange, #e8590c); background: #faf8f5; border-radius: 0 12px 12px 0; }
+      .expert-quote blockquote { font-size: clamp(1.1rem, .5vw + 1rem, 1.3rem); }
+      .expert-quote figcaption { margin-top: .6rem; font-size: .95rem; color: #5b6573; }
+      @media (max-width: 640px) { .tool-field input, .tool-field select { max-width: 100%; } .expert-quote { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header">
+      <div class="phone-bar">
+        <div class="phone-bar-inner">
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm368 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352h117.3C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg><span class="phone-bar-label">Clients</span></span>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <a class="phone-bar-item" href="tel:+14808407595"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-840-7595</a>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v32h576V96c0-35.3-28.7-64-64-64H64zm512 192H0v192c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><span class="phone-bar-label">Account holders &amp; payments</span></span>
+          <a class="phone-bar-item" href="tel:+14808471323"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-847-1323</a>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html" aria-label="Elite Recovery Group home">
+          <img src="../assets/erg-logo-badge-256.png" alt="Elite Recovery Group">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button" href="../contact.html">Book recovery review</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mobilePanel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">Clients: 480-840-7595</a>
+          <a href="tel:+14808471323">Account holders &amp; payments: 480-847-1323</a>
+          <a class="button" href="../contact.html">Book recovery review</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+
+      <section class="page-intro">
+        <div class="section-inner">
+          <p class="eyebrow">Software guide</p>
+          <h1>Collecting Unpaid Rent with Entrata: How to Recover Written-Off Resident Balances</h1>
+          <p class="page-intro-lede">
+            Entrata is built to keep current residents paying on time. Once a resident moves out owing money, recovering it is up to you. This guide covers what Entrata publicly confirms about former-resident balances, where its delinquency tools stop, how to build a placement file from a standard export, and how to post the money when it comes back.
+          </p>
+          <div class="article-meta">
+            <img class="article-meta-avatar" src="../assets/leadership-shawn-juarez.jpg" alt="">
+            <span><strong>Shawn Juarez</strong>, Managing Director, US Collections and Growth &middot; <a href="https://www.linkedin.com/in/shawn-juarez-21b418338" target="_blank" rel="noopener">LinkedIn</a></span>
+            <span>&middot;</span>
+            <span>Published November 6, 2026</span>
+            <span>&middot;</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner article-body">
+          <aside class="quick-answer">
+            <strong>Quick answer</strong>
+            <p>Entrata keeps the ledger and handles move-out accounting, but collecting a former resident's balance is up to you or a collection partner. Its delinquency tools, including ResidentPay, Late Notice and ELI+ Payments AI, are built for current residents (<a href="https://www.entrata.com/products/payments-ai" target="_blank" rel="noopener">Entrata</a>). Entrata doesn't publish a collections interface; integrations run through its API under a separate agreement. You don't need one. Export the past-resident ledger detail and the final account statement, reconcile the balance to the cent, place it securely, and post recoveries gross with the commission as a separate expense.</p>
+          </aside>
+
+          <div class="article-stat-grid">
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">2.53M</span>
+              <span class="article-stat-grid-label">U.S. units on Entrata, June 2026 (company-reported)</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">~10%</span>
+              <span class="article-stat-grid-label">Entrata's stated share of U.S. multifamily</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">30%</span>
+              <span class="article-stat-grid-label">Drop in days delinquent Entrata reports for Payments AI</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">$92</span>
+              <span class="article-stat-grid-label">Per unit per year lost to collections and bad debt (NAA estimate)</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">4</span>
+              <span class="article-stat-grid-label">Ledger totals to tie out before placing</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">5</span>
+              <span class="article-stat-grid-label">Reg F itemization dates a collector can choose from</span>
+            </div>
+          </div>
+
+          <h2>What Entrata Does With a Former Resident's Balance</h2>
+          <p>
+            Entrata keeps the ledger. Collecting what's left on it after move-out is up to you. Entrata's public documentation confirms that Core posts transactions to the resident ledger and supports move-out tasks and resident self-service (<a href="https://docs.entrata.com/" target="_blank" rel="noopener">Entrata docs</a>), and its Accounting product adds configurable ledgers and system-wide reporting (<a href="https://www.entrata.com/products/accounting" target="_blank" rel="noopener">Entrata Accounting</a>). The detailed move-out screens, write-off rules and collections statuses are documented in Entrata's client help center, which isn't public. We couldn't confirm them from a primary source, and this guide says so wherever that matters.
+          </p>
+          <p>
+            In practice, most Entrata teams close out a former resident in the same order, whatever the screens are called in their configuration:
+          </p>
+          <ol>
+            <li>Record the move-out date and complete the notice-to-vacate workflow.</li>
+            <li>Post final charges: prorated rent, utilities, cleaning, damage and any fees the lease allows.</li>
+            <li>Apply the security deposit and any prepaid balance.</li>
+            <li>Calculate the refund or the remaining balance.</li>
+            <li>Send the final account statement and keep a copy of what was sent.</li>
+            <li>Write off, place or keep working the balance, according to company policy.</li>
+          </ol>
+          <p>
+            Entrata's own product terms ask the same thing of you: past-resident balances should be accurate, and move-out accounting, deposit application and any required itemized statements should be finished before anything downstream relies on the ledger (<a href="https://legal.entrata.com/product-terms-and-conditions/usa-2023" target="_blank" rel="noopener">Entrata product terms</a>). A balance placed before the deposit accounting is done is the most common reason a collection account gets disputed.
+          </p>
+
+          <h2>Entrata's Delinquency Tools Work Before Move-Out</h2>
+          <p>
+            Almost everything Entrata markets for collections is aimed at residents who still live in the unit. That's useful, but it stops being relevant on the day the resident moves out.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Entrata delinquency tools and where they apply (public Entrata sources, 2024 to 2026)</caption>
+              <thead>
+                <tr><th scope="col">Tool</th><th scope="col">What it does</th><th scope="col">Former residents?</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>ResidentPay</td><td>Card, ACH, cash, money order and check-scan payments, plus automatic late-fee calculation (<a href="https://www.entrata.com/products/residentpay" target="_blank" rel="noopener">Entrata</a>)</td><td>Only if the portal stays open to them</td></tr>
+                <tr><td>Late Notice and delinquency dashboard</td><td>One delinquency policy across properties, personalized notices, small-balance reminders, a dashboard of notice status (<a href="https://www.entrata.com/blog/delinquencies-managed" target="_blank" rel="noopener">Entrata, 2024</a>)</td><td>No, built for current residents</td></tr>
+                <tr><td>Flex and payment plans</td><td>Splits rent into installments, or structures repayment of a past-due balance (<a href="https://www.entrata.com/blog/summit-recap-boosting-efficiency-and-driving-revenue-with-the-latest-innovations" target="_blank" rel="noopener">Entrata Summit recap</a>)</td><td>Rarely after move-out</td></tr>
+                <tr><td>ELI+ Payments AI</td><td>Reminders and past-due messages by SMS, email and the portal, balance questions, payment-plan conversations, with logs kept (<a href="https://www.entrata.com/products/payments-ai" target="_blank" rel="noopener">Entrata Payments AI</a>)</td><td>Not confirmed</td></tr>
+                <tr><td>Comparative Delinquency reporting</td><td>Combines delinquency, receipts by charge code, aged receivables and deposit audit data (<a href="https://www.entrata.com/blog/the-power-of-smart-reporting" target="_blank" rel="noopener">Entrata</a>)</td><td>Yes, for reporting</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Entrata reports strong results for Payments AI: a 30% reduction in average days delinquent among users, and one operator with a 40% boost in rent collections (<a href="https://www.entrata.com/blog/revolutionizing-rent-collection-how-ai-delivers-efficiency-empathy-and-a-healthier-bottom-line" target="_blank" rel="noopener">Entrata, 2025</a>). Those are vendor-reported figures, not audited benchmarks. They also measure something different from recovery. A tool that nudges a current resident to pay on the 3rd isn't the same as one that finds and collects from someone who moved out in March and changed their number. Our guide to <a href="./ai-rent-collection-software.html">AI rent collection software</a> covers where that line falls.
+          </p>
+          <p>
+            The legal line matters too. Once a balance goes to a third-party collector, the Fair Debt Collection Practices Act and Regulation F apply to the contact: validation notices, call limits and dispute handling (<a href="./fdcpa-regulation-f-rent-collection.html">FDCPA and Regulation F for rent collection</a>). Automated messages from the property's own system aren't built for that.
+          </p>
+
+          <h2>Entrata Collections Integrations: What's Public and What Isn't</h2>
+          <p>
+            Entrata doesn't publish a named collections interface the way Yardi lists its Collections API. Integrations run through the Entrata API, which is RPC-based, authenticates with an API key, covers resident and property data, and requires an agreement between the company and Entrata before use (<a href="https://docs.entrata.com/api/v1/documentation" target="_blank" rel="noopener">Entrata API documentation</a>). The endpoint details sit behind that agreement.
+          </p>
+          <p>
+            Here is how the four parts of a collections integration line up against what Entrata publicly confirms:
+          </p>
+          <ul>
+            <li><strong>Sending accounts:</strong> possible through the API, which covers residents and properties. Which fields an integration actually sends is not confirmed publicly.</li>
+            <li><strong>Status updates:</strong> Entrata tracks delinquency status, policy history, bulk notes and claim reminders natively (<a href="https://www.entrata.com/product-updates" target="_blank" rel="noopener">Entrata product updates</a>). Whether an outside collector can write placement status back is not confirmed.</li>
+            <li><strong>Posting payments back:</strong> Entrata confirms that portal payments post to accounting immediately (<a href="https://www.entrata.com/products/residentportal" target="_blank" rel="noopener">Entrata ResidentPortal</a>). Posting by an outside collector through the API is not confirmed publicly.</li>
+            <li><strong>Recalling an account:</strong> not confirmed publicly.</li>
+          </ul>
+          <p>
+            Entrata itself draws the contrast. It says Payments AI works on real-time platform data "without third-party APIs or syncing delays," which means any outside collections tool depends on API syncing (<a href="https://www.entrata.com/blog/revolutionizing-rent-collection-how-ai-delivers-efficiency-empathy-and-a-healthier-bottom-line" target="_blank" rel="noopener">Entrata</a>). If you're evaluating an integration, ask your Entrata customer success manager or the collector for the field list, the sync schedule and how recalls work, in writing. You don't need any of it to place an account.
+          </p>
+
+          <h2>Building an Entrata Placement File From a Standard Export</h2>
+          <p>
+            Every Entrata database can produce what a collector works from. The report names vary by configuration, but the one that matters is the past-resident ledger detail: every charge, credit, payment, concession, deposit application and write-off for the account, exported to Excel or CSV. Entrata's reporting module supports filtering and multiple export formats (<a href="https://www.entrata.com/products/reporting" target="_blank" rel="noopener">Entrata Reporting</a>).
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Where the placement data usually lives in Entrata</caption>
+              <thead>
+                <tr><th scope="col">Data the collector needs</th><th scope="col">Where to find it</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Move-out date</td><td>Resident or lease record; also on the move-out accounting</td></tr>
+                <tr><td>Amount placed</td><td>Ledger balance after deposit, credits and payments, as of the placement date</td></tr>
+                <tr><td>Charges since move-out</td><td>Ledger lines by transaction date, charge code, description and amount</td></tr>
+                <tr><td>Credits and payments</td><td>Deposit application, concessions, refunds, reversals and receipts</td></tr>
+                <tr><td>Contact details</td><td>Resident profile: legal name, forwarding address, phones, email</td></tr>
+                <tr><td>Lease identifiers</td><td>Lease ID, resident ID, unit, property, lease start and end dates</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Send four things for each account: the past-resident ledger detail, the final account statement as it was sent, a contact export, and a one-row placement summary showing the amount, placement date, property, legal entity and charge-code breakdown. Don't send only a delinquency summary or trial balance. A collector needs the itemized ledger to validate the debt. Our list of <a href="./what-documents-does-a-collection-agency-need.html">documents a collection agency needs</a> covers the lease, application and damage support that go with it.
+          </p>
+          <p>
+            Before you send the file, reconcile it: total charges, minus credits and payments, should equal the placed balance to the cent. The calculator below does that check. A placement that doesn't tie out to the ledger is the fastest way to lose a dispute.
+          </p>
+
+          <h2>Write-Offs and Reg F Data in the Export</h2>
+          <p>
+            A write-off is an accounting entry, not a waiver. It moves the receivable out of active A/R; it doesn't mean the former resident stops owing it (our guide to <a href="./resident-ledger-terms-explained.html">resident ledger terms</a> covers the difference). Entrata's write-off mechanics aren't documented publicly, so make sure your export preserves the audit trail:
+          </p>
+          <ul>
+            <li>The original balance before the write-off.</li>
+            <li>The write-off entry and its date.</li>
+            <li>The balance being placed.</li>
+            <li>A memo such as "Written off for accounting purposes on [date]; balance remains due and was placed for collection on [date]." Avoid any wording that sounds like forgiveness unless the owner actually waived the debt.</li>
+          </ul>
+          <p>
+            The collector also needs an itemization date. Regulation F lets a collector choose the last statement date, charge-off date, last payment date, transaction date or judgment date, then itemize interest, fees, payments and credits from that date to today (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1006/34/" target="_blank" rel="noopener">CFPB, 12 CFR 1006.34</a>). For an Entrata account, the final account statement date is usually the cleanest choice, as long as you can reproduce that statement. Our explainer on the <a href="./reg-f-itemization-date.html">Reg F itemization date</a> goes deeper. If the collector reports to credit bureaus, it will also need the date of first delinquency and full identifiers for the Metro 2 file (<a href="https://www.cdiaonline.org/metro-2-format-essentials-plus/" target="_blank" rel="noopener">CDIA</a>).
+          </p>
+          <p>
+            Once the file leaves Entrata, its security is your responsibility and the recipient's. The FTC Safeguards Rule covers collection agencies and expects encryption, access controls and oversight of service providers (<a href="https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know" target="_blank" rel="noopener">FTC</a>). Send placement files by SFTP or a secure portal, never as an ordinary email attachment.
+          </p>
+
+          <h2>Posting Recoveries Back to the Entrata Ledger</h2>
+          <p>
+            Post the gross amount the former resident paid to their ledger, and record the collection commission as a separate expense. That holds whether the collector remits gross and bills its fee, or remits net. If you post only the net check, the resident's balance stays overstated by the commission, and the next validation request or dispute will show the wrong number.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Recording a $1,200 recovery with a 30% commission, remitted net</caption>
+              <thead>
+                <tr><th scope="col">Line</th><th scope="col">Amount</th><th scope="col">Where it goes</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Resident payment</td><td>$1,200</td><td>Credit to the resident ledger (or a bad-debt recovery if written off)</td></tr>
+                <tr><td>Commission</td><td>$360</td><td>Collection expense, per your owner policy</td></tr>
+                <tr><td>Cash received</td><td>$840</td><td>Matches the remittance deposit</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            If the account was written off, record the recovery so the write-off is reversed only by what was actually recovered. Each month, tie out the collector's gross payments, the recoveries posted in Entrata, the commission expense and the net deposits in the bank reconciliation. Owners and asset managers read that recovery line closely; our guide to <a href="./how-asset-managers-measure-bad-debt-recovery.html">how asset managers measure bad debt recovery</a> covers what they look at.
+          </p>
+
+          <h2>How Big Is Entrata in Multifamily?</h2>
+          <p>
+            Entrata's 2026 IPO filing says it powered 2,529,199 U.S. multifamily units as of June 30, 2026, about 10% of a roughly 23.4 million-unit market, up from 2,126,338 at the end of 2024 (<a href="https://www.sec.gov/Archives/edgar/data/2028464/000162828026059692/entrata-sx1a2.htm" target="_blank" rel="noopener">Entrata S-1/A</a>). The same filing reports 233 customers with more than $500,000 in annual recurring revenue at year-end 2025 and puts Entrata with 4 of NMHC's top 10 apartment operators. These are company-reported figures. The pattern is clear, though: Entrata is strongest with large enterprise operators, which also means large placed-debt volumes coming out of a single database.
+          </p>
+          <p>
+            Entrata doesn't publish a portfolio-wide delinquency or bad-debt rate. Its materials cite the National Apartment Association's estimate that managers lose an average of $92 per unit a year to collections and bad debt (<a href="https://go.entrata.com/rs/223-FOQ-437/images/TheTrueCostofFraudinMultifamily_Guide.pdf?version=0" target="_blank" rel="noopener">Entrata guide</a>). Measure your own: write-offs as a share of gross potential rent, gross and net recovery on placed debt, and days from move-out to placement. The <a href="./rental-debt-recovery-statistics.html">rental debt recovery statistics</a> page collects the public benchmarks.
+          </p>
+
+          <h2>Placing Entrata Balances With Elite Recovery Group</h2>
+          <p>
+            Elite Recovery Group works from a standard Entrata export: the past-resident ledger detail, the final account statement and the lease are enough to start, with no integration to set up. For how Entrata compares with the other platforms, see our <a href="./property-management-software-collections.html">property management software comparison</a> and the <a href="./yardi-unpaid-rent-collections.html">Yardi</a>, <a href="./realpage-unpaid-rent-collections.html">RealPage</a>, <a href="./appfolio-unpaid-rent-collections.html">AppFolio</a> and <a href="./rent-manager-unpaid-rent-collections.html">Rent Manager</a> guides.
+          </p>
+
+          <div class="knowledge-check" id="enRecon">
+            <strong>Placement file tie-out check</strong>
+            <p>Enter the totals from your past-resident ledger export. The placed balance should equal charges minus credits minus payments. Nothing you type leaves this page.</p>
+            <label class="tool-field">Total charges on the ledger ($)
+              <input type="number" id="enCharges" min="0" step="0.01" inputmode="decimal" placeholder="4250.00">
+            </label>
+            <label class="tool-field">Credits, including the deposit applied ($)
+              <input type="number" id="enCredits" min="0" step="0.01" inputmode="decimal" placeholder="1500.00">
+            </label>
+            <label class="tool-field">Payments received ($)
+              <input type="number" id="enPayments" min="0" step="0.01" inputmode="decimal" placeholder="600.00">
+            </label>
+            <label class="tool-field">Balance you plan to place ($)
+              <input type="number" id="enPlaced" min="0" step="0.01" inputmode="decimal" placeholder="2150.00">
+            </label>
+            <div class="tool-out" aria-live="polite">
+              <p id="enExpected"></p>
+              <p id="enVerdict"></p>
+            </div>
+          </div>
+
+          <aside class="key-takeaways">
+            <strong>Key takeaways</strong>
+            <ul>
+              <li>Entrata's detailed move-out, write-off and collections screens are in its private help center; plan around your own configuration.</li>
+              <li>ResidentPay, Late Notice and Payments AI work on current residents; they don't locate or collect from someone who has moved out.</li>
+              <li>Entrata has no published collections interface; the API requires an agreement and its collections field list isn't public.</li>
+              <li>A placement file needs the past-resident ledger detail, the final account statement, a contact export and a one-row summary.</li>
+              <li>Reconcile charges minus credits minus payments to the placed balance before sending anything.</li>
+              <li>Keep the write-off in the export as an accounting entry, with a memo that the balance is still due.</li>
+              <li>Post recoveries gross to the ledger and record the commission separately, even when the collector remits net.</li>
+            </ul>
+          </aside>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <ul class="faq-list">
+            <li class="faq-item">
+              <details>
+                <summary>Does Entrata have a built-in collections module for former residents?</summary>
+                <p>Not one that Entrata documents publicly. Its delinquency tools, including late notices, the delinquency dashboard and Payments AI, are aimed at current residents. Former-resident balances are typically placed with a collector from a ledger export.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can ELI+ Payments AI collect from residents who already moved out?</summary>
+                <p>Entrata hasn't confirmed that publicly. Its materials describe reminders, past-due notices and payment-plan conversations with residents through SMS, email and the portal. Once a balance goes to a third-party collector, FDCPA and Regulation F rules apply to the contact.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can I place an Entrata balance before the deposit deadline passes?</summary>
+                <p>No. Apply the deposit and send the itemized accounting within your state's deadline first: 30 days in Texas and Utah, 14 business days in Arizona and 31 days in Oregon. A balance placed before that is easy to dispute.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can former residents still pay through Entrata's ResidentPortal?</summary>
+                <p>Only if your configuration keeps their portal access open. Entrata confirms portal payments post to accounting immediately, but access for past residents depends on your setup. Once an account is placed, payments should go through the collector or be reported to it the same day.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Do I need an Entrata API integration to use a collection agency?</summary>
+                <p>No. An integration can automate placement and posting, but a standard ledger export, the final statement and the lease are enough to place an account.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>What if a former resident pays the property directly after placement?</summary>
+                <p>Post the payment to the Entrata ledger and tell the collector the same day so it stops contact and adjusts the balance. Whether commission is owed on direct payments depends on your collection agreement.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>What itemization date should I give the collector for an Entrata account?</summary>
+                <p>Usually the date of the final account statement, as long as you can reproduce that statement and the balance on that date. Regulation F also allows the charge-off, last payment, transaction or judgment date.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How many units run on Entrata?</summary>
+                <p>Entrata's 2026 IPO filing reported 2,529,199 U.S. multifamily units as of June 30, 2026, about 10% of the market. That is a company-reported figure.</p>
+              </details>
+            </li>
+          </ul>
+
+          <p class="article-related">
+            Related: <a href="./yardi-unpaid-rent-collections.html">Collecting Unpaid Rent with Yardi</a> · <a href="./realpage-unpaid-rent-collections.html">Collecting Unpaid Rent with RealPage</a> · <a href="./rent-manager-unpaid-rent-collections.html">Collecting Unpaid Rent with Rent Manager</a> · <a href="./property-management-software-collections.html">Property Management Software for Collections</a> · <a href="./what-is-resident-recovery.html">What Is Resident Recovery?</a> · <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta-wrap">
+          <div>
+            <h2>Turn your Entrata write-offs back into recovered rent.</h2>
+            <p>
+              Book a recovery review with Elite Recovery Group. Send a standard Entrata export and we'll show you what's collectible, how placement works and how recoveries will post back to your ledger.
+            </p>
+          </div>
+          <aside class="contact-card" aria-label="Elite Recovery Group contact information">
+            <a class="contact-line" href="tel:+14808407595">480-840-7595</a>
+            <a class="contact-line" href="https://ergroupllc.com">ergroupllc.com</a>
+            <address class="contact-address">1616 E Main St, STE 230<br>Mesa, AZ 85203</address>
+            <div class="contact-person">
+              <strong>Shawn Juarez</strong>
+              <span>Managing Director, US Collections and Growth</span>
+            </div>
+            <div class="contact-person">
+              <strong>Anton Vukic</strong>
+              <span>VP of Global Business Partnerships</span>
+            </div>
+            <a class="button" href="../contact.html#callback">Request a callback</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <span class="footer-brand">
+            <img src="../assets/erg-logo-badge-256.png" alt="" aria-hidden="true">
+            Elite Recovery Group, Specialist Property Collections
+          </span>
+          <p class="footer-tagline">Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer solutions">
+          <strong class="footer-col-heading">Solutions</strong>
+          <a href="../rental-debt-collection.html">Rental Debt Collection</a>
+          <a href="../collection-agency-for-landlords.html">Collection Agency for Landlords</a>
+          <a href="../unpaid-rent-collection-agency.html">Unpaid Rent Collection Agency</a>
+          <a href="../tenant-collection-agency.html">Tenant Collection Agency</a>
+          <a href="../best-collection-agency-for-unpaid-rent.html">Best Collection Agency for Unpaid Rent</a>
+          <a href="../property-management-collections.html">Property Management Collections</a>
+          <a href="../rental-collection-services.html">Rental Collection Services</a>
+          <a href="../move-out-debt-collection.html">Move-Out Debt Collection</a>
+          <a href="../eviction-cost-recovery.html">Eviction Cost Recovery</a>
+          <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          <a href="../collection-agency-for-asset-managers.html">Collection Agency for Asset Managers</a>
+          <a href="../outsource-rent-collections.html">Outsource Rent Collections</a>
+          <a href="../fdcpa-compliant-collection-agency.html">FDCPA Compliant Collection Agency</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer company">
+          <strong class="footer-col-heading">Company</strong>
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer account">
+          <strong class="footer-col-heading">Account</strong>
+          <a href="../pay-dispute.html">Pay Bill</a>
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../assets/site.js"></script>
+    <script>
+      (function () {
+        var box = document.getElementById('enRecon');
+        if (!box) return;
+        var ids = ['enCharges', 'enCredits', 'enPayments', 'enPlaced'];
+        function val(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? null : v; }
+        function money(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+        function update() {
+          var c = val('enCharges'), cr = val('enCredits'), p = val('enPayments'), pl = val('enPlaced');
+          var exp = document.getElementById('enExpected'), ver = document.getElementById('enVerdict');
+          if (c === null) { exp.textContent = 'Enter the ledger totals to check the file.'; ver.textContent = ''; return; }
+          var bal = Math.round((c - (cr || 0) - (p || 0)) * 100) / 100;
+          exp.textContent = 'The ledger supports a balance of ' + money(bal) + '.';
+          if (bal <= 0) { ver.textContent = 'Nothing is owed on these numbers. Check for a refund due before placing anything.'; return; }
+          if (pl === null) { ver.textContent = 'Enter the balance you plan to place to compare.'; return; }
+          var diff = Math.round((pl - bal) * 100) / 100;
+          if (diff === 0) ver.textContent = 'Ties out to the cent. This placement is supported by the ledger.';
+          else if (diff > 0) ver.textContent = 'You are placing ' + money(diff) + ' more than the ledger supports. Find the missing credit or payment before you send it.';
+          else ver.textContent = 'You are placing ' + money(-diff) + ' less than the ledger shows. Confirm whether a charge was waived or left off on purpose.';
+        }
+        ids.forEach(function (id) { document.getElementById(id).addEventListener('input', update); });
+        update();
+      })();
+    </script>
+  </body>
+</html>

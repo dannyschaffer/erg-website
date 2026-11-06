@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBLJHTSCV7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JBLJHTSCV7');
+    </script>
+    <title>Collecting Unpaid Rent with Rent Manager: How to Recover Former Tenant Balances | Elite Recovery Group</title>
+    <meta
+      name="description"
+      content="How Rent Manager handles move-outs, deposits and bad-debt write-offs, how collections integrations work, which reports to send a collector, and how recoveries should show on owner statements."
+    >
+    <link rel="canonical" href="https://ergroupllc.com/blog/rent-manager-unpaid-rent-collections">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Collecting Unpaid Rent with Rent Manager: How to Recover Former Tenant Balances">
+    <meta property="og:description" content="A guide for Rent Manager users: move-out and deposit deadlines, write-offs, the integrations marketplace, the placement packet, owner statements and mixed commercial portfolios.">
+    <meta property="og:url" content="https://ergroupllc.com/blog/rent-manager-unpaid-rent-collections">
+    <meta property="og:image" content="https://ergroupllc.com/assets/erg-logo-badge-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Collecting Unpaid Rent with Rent Manager">
+    <meta name="twitter:description" content="A guide for Rent Manager users: move-out and deposit deadlines, write-offs, the integrations marketplace, the placement packet, owner statements and mixed commercial portfolios.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Collecting Unpaid Rent with Rent Manager: How to Recover Former Tenant Balances",
+  "description": "How Rent Manager handles move-outs, deposits and bad-debt write-offs, how collections integrations work, which reports to send a collector, and how recoveries should show on owner statements.",
+  "image": "https://ergroupllc.com/assets/erg-logo-badge-512.png",
+  "author": {
+    "@type": "Person",
+    "name": "Shawn Juarez",
+    "jobTitle": "Managing Director, US Collections and Growth",
+    "url": "https://www.linkedin.com/in/shawn-juarez-21b418338",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Elite Recovery Group"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elite Recovery Group",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ergroupllc.com/assets/erg-logo-badge-512.png"
+    }
+  },
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "mainEntityOfPage": "https://ergroupllc.com/blog/rent-manager-unpaid-rent-collections",
+  "wordCount": 1949,
+  "keywords": "Rent Manager unpaid rent collections, Rent Manager collections, Rent Manager write off bad debt, Rent Manager move out, Rent Manager security deposit refund, Rent Manager integrations, Rent Manager API, Rent Manager aged receivables, Rent Manager delinquency report, owner statement collection recovery, management fee on recoveries, CAM collections, deposit itemization deadline, Regulation F itemization date, London Computer Systems"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Rent Manager have a send-to-collections button?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not one that's documented publicly as a native feature. Collections run through integrations activated from the Available Integrations area, or through a standard ledger export sent to a collector."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I keep sending AR Automation notices after placing an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Stop your own notices on placed accounts so the former tenant hears from one party. Mixed messages from the property and the collector are a common source of disputes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a former tenant pays the property directly after placement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Post the receipt to their Rent Manager ledger and tell the collector the same day so it stops contact and adjusts the balance. Whether commission is owed on direct payments depends on your collection agreement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I place former tenant balances?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a fixed schedule, at least monthly, once each account's deposit deadline has passed. Recovery drops as accounts age, and a regular batch keeps the ledger, the write-offs and the collector's file in sync."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I charge my management fee on a collection recovery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your management agreement says recoveries count as collected rent. Decide it in writing, set the fee template to match, and don't let the commission and your fee net against each other silently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I place commercial tenant balances the same way as residential ones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep them separate. Commercial balances often include CAM, taxes and insurance and need the reconciliation attached, and the FDCPA generally applies only to consumer debts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many units run on Rent Manager?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rent Manager doesn't publish a unit count; it reports more than 10,000 property management company customers. An independent 2026 count puts it at about 5.75 million units, which is an estimate, not a company figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Rent Manager report rent payments to credit bureaus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, through Rent Tracker, which reports rent payments for current tenants. That's separate from collection-account reporting on a former tenant's balance, which a collector handles."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+      .tool-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1rem; }
+      .tool-chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: .4rem .9rem; font: inherit; font-size: .95rem; cursor: pointer; }
+      .tool-chip[aria-pressed="true"] { background: var(--ink-black, #111); color: #fff; border-color: var(--ink-black, #111); }
+      .tool-field { display: grid; gap: .3rem; margin: 0 0 .9rem; font-weight: 600; }
+      .tool-field input, .tool-field select { font: inherit; font-weight: 400; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 8px; max-width: 22rem; }
+      .tool-out { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+      .tool-out p { margin: 0 0 .5rem; }
+      .tool-check label { display: flex; gap: .6rem; align-items: baseline; padding: .45rem 0; border-top: 1px solid var(--line); }
+      .tool-check label:first-child { border-top: 0; }
+      .tool-check input { margin-top: 3px; }
+      .is-hidden { display: none; }
+      .expert-quote { margin: 2rem 0; padding: 1.25rem 1.5rem; border-left: 4px solid var(--orange, #e8590c); background: #faf8f5; border-radius: 0 12px 12px 0; }
+      .expert-quote blockquote { font-size: clamp(1.1rem, .5vw + 1rem, 1.3rem); }
+      .expert-quote figcaption { margin-top: .6rem; font-size: .95rem; color: #5b6573; }
+      @media (max-width: 640px) { .tool-field input, .tool-field select { max-width: 100%; } .expert-quote { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header">
+      <div class="phone-bar">
+        <div class="phone-bar-inner">
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M144 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm368 0a80 80 0 1 1 0 160 80 80 0 1 1 0-160zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7-1.3 7.2-1.9 14.7-1.9 22.3 0 38.2 16.8 72.5 43.3 96H21.3C9.6 320 0 310.4 0 298.7zM405.3 320h-.7c26.6-23.5 43.3-57.8 43.3-96 0-7.6-.7-15-1.9-22.3 13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1-192 0zM128 485.3C128 411.7 187.7 352 261.3 352h117.3C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg><span class="phone-bar-label">Clients</span></span>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <a class="phone-bar-item" href="tel:+14808407595"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-840-7595</a>
+          <span class="phone-bar-divider" aria-hidden="true"></span>
+          <span class="phone-bar-item"><svg class="pb-icon" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96v32h576V96c0-35.3-28.7-64-64-64H64zm512 192H0v192c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><span class="phone-bar-label">Account holders &amp; payments</span></span>
+          <a class="phone-bar-item" href="tel:+14808471323"><svg class="pb-icon pb-phone" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448 18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>480-847-1323</a>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html" aria-label="Elite Recovery Group home">
+          <img src="../assets/erg-logo-badge-256.png" alt="Elite Recovery Group">
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button" href="../contact.html">Book recovery review</a>
+          <button
+            type="button"
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="mobilePanel"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a class="utility-link" href="../pay-dispute.html">Pay Bill</a>
+          <a class="utility-link" href="https://elite.clientconnectaccess.com/">Client Access</a>
+          <a href="tel:+14808407595">Clients: 480-840-7595</a>
+          <a href="tel:+14808471323">Account holders &amp; payments: 480-847-1323</a>
+          <a class="button" href="../contact.html">Book recovery review</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+
+      <section class="page-intro">
+        <div class="section-inner">
+          <p class="eyebrow">Software guide</p>
+          <h1>Collecting Unpaid Rent with Rent Manager: How to Recover Former Tenant Balances</h1>
+          <p class="page-intro-lede">
+            Rent Manager settles a move-out on the ledger: final charges, deposit, refund, balance. Whatever's left is a receivable you have to decide what to do with. This guide covers how Rent Manager closes out a former tenant, what to send a collector, and how a recovery should flow to the owner statement, including for mixed residential and commercial portfolios.
+          </p>
+          <div class="article-meta">
+            <img class="article-meta-avatar" src="../assets/leadership-shawn-juarez.jpg" alt="">
+            <span><strong>Shawn Juarez</strong>, Managing Director, US Collections and Growth &middot; <a href="https://www.linkedin.com/in/shawn-juarez-21b418338" target="_blank" rel="noopener">LinkedIn</a></span>
+            <span>&middot;</span>
+            <span>Published November 6, 2026</span>
+            <span>&middot;</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner article-body">
+          <aside class="quick-answer">
+            <strong>Quick answer</strong>
+            <p>In Rent Manager, move the tenant out, post final charges, apply the deposit, then refund any surplus, in that order (<a href="https://info.rentmanager.com/hubfs/PDFs/RentManagerCertificationCoreStudyGuide.pdf" target="_blank" rel="noopener">Rent Manager</a>). Any balance left stays on the former tenant's ledger. To place it, send the tenant transaction ledger, an aged receivables report filtered to the tenant, the move-out statement and the lease; no integration is required. Post recoveries gross as a receipt against the original charges, book the commission separately, and follow your management fee template for what the owner sees.</p>
+          </aside>
+
+          <div class="article-stat-grid">
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">10,000+</span>
+              <span class="article-stat-grid-label">Property management companies using Rent Manager (company-reported)</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">4</span>
+              <span class="article-stat-grid-label">Steps in Rent Manager's move-out order</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">30 / 14 / 30 / 31</span>
+              <span class="article-stat-grid-label">Deposit deadlines in days: TX / AZ (business) / UT / OR</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">5</span>
+              <span class="article-stat-grid-label">Reports and documents in a placement packet</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">100</span>
+              <span class="article-stat-grid-label">Units in Rent Manager's Basic bundle</span>
+            </div>
+            <div class="article-stat-grid-item">
+              <span class="article-stat-grid-number">2</span>
+              <span class="article-stat-grid-label">Separate files for residential and commercial balances</span>
+            </div>
+          </div>
+
+          <h2>How Rent Manager Closes Out a Former Tenant</h2>
+          <p>
+            Rent Manager treats a move-out as a ledger settlement. Its own certification material lays out the order: move the tenant out, apply charges, then refund the deposit (<a href="https://info.rentmanager.com/hubfs/PDFs/RentManagerCertificationCoreStudyGuide.pdf" target="_blank" rel="noopener">Rent Manager Core Certification guide</a>). Final charges go on before the deposit is settled, which is the order that keeps a balance defensible.
+          </p>
+          <ol>
+            <li>Close out the tenancy with Rent Manager's move-out workflow.</li>
+            <li>Post the final amounts owed: unpaid rent, fees, damage, utilities and any other charges the lease allows.</li>
+            <li>Apply the security deposit and other credits against those charges.</li>
+            <li>Produce the itemized statement and refund any surplus.</li>
+            <li>Keep the ledger, statement and supporting documents on the former tenant's record.</li>
+          </ol>
+          <p>
+            If charges exceed the deposit, the remainder stays on the former tenant's ledger as a receivable. Nothing erases it automatically when the tenant leaves. What happens next, whether you pursue it, write it off or both, is your decision. Rent Manager's default aging and status behavior for former tenants isn't documented publicly, so we haven't assumed any.
+          </p>
+
+          <h2>Deposit Itemization Comes First</h2>
+          <p>
+            Rent Manager's built-in deposit management, through its Rentable integration, posts deposit activity straight to the tenant ledger and keeps itemized statements, refund confirmations and audit records on the tenant record. It also tracks return deadlines and supports ACH refunds (<a href="https://www.rentmanager.com/security-deposits/" target="_blank" rel="noopener">Rent Manager security deposits</a>). Rent Manager describes it as a no-cost tool for users in all 50 states. Use it, or something like it, because the deposit deadline is the first thing a former tenant's dispute will test.
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>Deposit accounting deadlines after move-out, by state</caption>
+              <thead>
+                <tr><th scope="col">State</th><th scope="col">Deadline</th><th scope="col">What starts the clock</th><th scope="col">Statute</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Texas</td><td>30 days</td><td>Surrender of the premises; the duty depends on the tenant giving a forwarding address</td><td><a href="https://statutes.capitol.texas.gov/getstatute.aspx?Code=PR&amp;Value=92.103" target="_blank" rel="noopener">Prop. Code 92.103</a></td></tr>
+                <tr><td>Arizona</td><td>14 business days</td><td>Termination, delivery of possession and the tenant's demand</td><td><a href="https://www.azleg.gov/ars/33/01321.htm" target="_blank" rel="noopener">A.R.S. 33-1321</a></td></tr>
+                <tr><td>Utah</td><td>30 days</td><td>The renter vacates and returns possession</td><td><a href="https://le.utah.gov/xcode/Title57/Chapter17/57-17-S3.html" target="_blank" rel="noopener">Utah Code 57-17-3</a></td></tr>
+                <tr><td>Oregon</td><td>31 days</td><td>Termination and delivery of possession</td><td><a href="https://www.oregonlegislature.gov/bills_laws/ors/ors090.html" target="_blank" rel="noopener">ORS 90.300</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Lease terms can't extend these deadlines. In Utah, a landlord who misses the 30 days gets a demand from the tenant and then has five business days to comply. Our guide to <a href="./security-deposits-and-move-out-charges.html">security deposits and move-out charges</a> covers deductions and what counts as normal wear and tear.
+          </p>
+
+          <h2>Write-Offs in Rent Manager</h2>
+          <p>
+            Rent Manager has a bad-debt write-off for outstanding tenant balances. Its Bookkeeping Certification lists "Write Off Bad Debt" as a tested task (<a href="https://info.rentmanager.com/hubfs/PDFs/RentManagerCertificationBookkeepingStudyGuide.pdf" target="_blank" rel="noopener">Rent Manager Bookkeeping Certification guide</a>). What isn't public: the exact general ledger accounts it hits, the approval workflow, and whether a later recovery automatically reinstates the balance. Those depend on your setup, so confirm them with whoever owns your chart of accounts.
+          </p>
+          <p>
+            The write-off doesn't end the debt. It's an accounting treatment, and the former tenant still owes the balance unless the owner waives it (our guide to <a href="./resident-ledger-terms-explained.html">resident ledger terms</a> explains why). The practical rule is the same as on every platform: <strong>export the ledger before the write-off posts</strong>, or filter it to show the original charges, because that's the document a collector validates against.
+          </p>
+
+          <h2>Collections Integrations and the Rent Manager API</h2>
+          <p>
+            Rent Manager handles collections through integrations rather than a single documented "send to collections" button. Its in-product marketplace sits under Menu, Administration, Integrations, Available Integrations, where you review a solution and request activation (<a href="https://www.rentmanager.com/available-integrations-rent-manager/" target="_blank" rel="noopener">Rent Manager</a>). Integrations are either built in or connect through the API or file exchange (<a href="https://www.rentmanager.com/integrations/" target="_blank" rel="noopener">Rent Manager integrations</a>).
+          </p>
+          <p>
+            A collections integration with Rent Manager typically does four things: reads tenant, lease and balance data; tracks placement status, often in user-defined fields or notes when there's no native status field; posts recovered payments back as receipts against the open charges; and reconciles each batch. Rent Manager stays the system of record for the ledger, and the collector owns outreach, compliance and payment arrangements. If you're evaluating one, ask:
+          </p>
+          <ul>
+            <li>Which charge types and aging buckets make an account eligible?</li>
+            <li>How often are balances refreshed, so nobody collects on an account that already paid?</li>
+            <li>Where does placement and recall status live in Rent Manager?</li>
+            <li>Do payments post automatically or wait for approval, and are partial payments and reversals handled?</li>
+            <li>Is every posted receipt tied to an external transaction ID?</li>
+          </ul>
+          <p>
+            An integration saves keystrokes. It isn't required. Every Rent Manager database can produce a placement file from standard reports.
+          </p>
+
+          <h2>The Reports to Send a Collector</h2>
+          <p>
+            Rent Manager's financial reports include Aged Receivables, Charge Detail and a Delinquency Report, and its Report Writer supports custom exports (<a href="https://www.rentmanager.com/accounting/" target="_blank" rel="noopener">Rent Manager accounting</a>). The Tenant Delinquency Comparison Report can show balances across two periods if you need history (<a href="https://www.rentmanager.com/3-new-delinquency-report-options/" target="_blank" rel="noopener">Rent Manager</a>).
+          </p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <caption>A Rent Manager placement packet for one former tenant</caption>
+              <thead>
+                <tr><th scope="col">Purpose</th><th scope="col">Report or document</th><th scope="col">What it shows</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Support the debt</td><td>Tenant transaction ledger, full history</td><td>Every charge, payment, credit and adjustment with dates and running balance</td></tr>
+                <tr><td>Prove the balance</td><td>Aged Receivables, filtered to the tenant</td><td>Open charges by aging bucket</td></tr>
+                <tr><td>Explain the move-out</td><td>Move-out statement as sent</td><td>Final rent, damage, utilities, deposit applied, balance left</td></tr>
+                <tr><td>Verify liability</td><td>Lease, addenda, guaranty, inspection and photos</td><td>Who signed and what the charges are based on</td></tr>
+                <tr><td>Reconcile internally</td><td>General Ledger or Charge Detail</td><td>The receivable accounts and charge types behind the balance</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Send PDFs to the collector and keep CSV copies for your own reconciliation. The collector will also need an itemization date for the Regulation F validation notice: the last statement date, charge-off date, last payment date, transaction date or judgment date (<a href="https://www.consumerfinance.gov/rules-policy/regulations/1006/34/" target="_blank" rel="noopener">CFPB, 12 CFR 1006.34</a>). The move-out statement date is usually the cleanest. See our explainer on the <a href="./reg-f-itemization-date.html">Reg F itemization date</a> and our list of <a href="./what-documents-does-a-collection-agency-need.html">documents a collection agency needs</a>.
+          </p>
+
+          <h2>Recoveries and Owner Statements: Gross or Net?</h2>
+          <p>
+            Post the gross amount the former tenant paid as a receipt on their ledger, applied to the original charges, and record the collector's commission as its own expense. If the account was written off, reverse the write-off only by what was actually recovered. That keeps the tenant ledger right and the general ledger auditable.
+          </p>
+          <p>
+            What the owner sees is a separate choice. Rent Manager doesn't force gross or net on owner statements; it follows your management fee template and owner statement setup, and owners can see fees and distributions through Owner Web Access (<a href="https://www.rentmanager.com/owners/" target="_blank" rel="noopener">Rent Manager for owners</a>). The clearest presentation is gross recovery, less the collection commission, less or plus your management fee, equals the owner's credit. Decide in writing whether a recovery counts as "collected rent" for your management fee. If it does, charge the fee on the gross recovery. Don't let the commission and your fee silently net against each other. The calculator below shows the difference.
+          </p>
+
+          <h2>Mixed Residential and Commercial Portfolios</h2>
+          <p>
+            Rent Manager is common in mixed portfolios, and commercial balances need more care than a residential move-out. A former commercial tenant can owe CAM, real estate taxes, insurance and percentage rent on top of base rent, across more than one suite. Rent Manager's commercial module tracks those charges and reconciles them against commercial expenses (<a href="https://www.rentmanager.com/accounting/" target="_blank" rel="noopener">Rent Manager</a>).
+          </p>
+          <ul>
+            <li><strong>Filter every report by property and legal entity,</strong> so each balance is tied to the right owner.</li>
+            <li><strong>Separate base rent from recoveries</strong> in the export, with distinct charge types for CAM, tax and insurance.</li>
+            <li><strong>Attach the CAM reconciliation</strong> if the balance includes it. A bare aged balance won't survive a dispute.</li>
+            <li><strong>Apply recoveries at the charge level,</strong> not as a lump sum to the portfolio.</li>
+            <li><strong>Check the fee base,</strong> so a recovered CAM balance doesn't trigger a residential-style percentage fee.</li>
+          </ul>
+          <p>
+            One more distinction: the Fair Debt Collection Practices Act covers consumer debts, so residential balances get Regulation F treatment and commercial balances generally don't. Keep them in separate placement files.
+          </p>
+
+          <h2>Rent Manager's Size and Who Uses It</h2>
+          <p>
+            Rent Manager, from London Computer Systems in Cincinnati, says it's used by more than 10,000 property management companies (<a href="https://www.rentmanager.com/about/" target="_blank" rel="noopener">Rent Manager</a>). Rent Manager doesn't publish a unit count. An independent 2026 count puts it at about 5.75 million units (<a href="https://propexo.com/blog/pms-unit-counts-2026/" target="_blank" rel="noopener">Propexo</a>); an older "5.5 million" figure also circulates but is attributed to another vendor too, so treat any unit number as an estimate. Rent Manager markets itself to portfolios of every size, with a Basic bundle for up to 100 units (<a href="https://www.rentmanager.com/" target="_blank" rel="noopener">Rent Manager</a>), and covers residential, commercial, associations, self-storage and manufactured housing.
+          </p>
+          <p>
+            Its own tools work on current tenants: Task Automation posts recurring charges and late fees, AR Automation sends email, text and phone notices by delinquency level and logs them to the tenant's history (<a href="https://www.rentmanager.com/automate-your-operation-with-these-tools/" target="_blank" rel="noopener">Rent Manager automation</a>), and Rent Tracker reports rent payments to the credit bureaus (<a href="https://www.rentmanager.com/integrations/the-rent-tracker/" target="_blank" rel="noopener">Rent Tracker</a>). None of them find a former tenant who moved without a forwarding address.
+          </p>
+
+          <h2>Placing Rent Manager Balances With Elite Recovery Group</h2>
+          <p>
+            Elite Recovery Group works from a standard Rent Manager export: the tenant transaction ledger, the move-out statement and the lease are enough to start, with no integration to set up. For how Rent Manager compares with other platforms, see our <a href="./property-management-software-collections.html">property management software comparison</a> and the <a href="./buildium-unpaid-rent-collections.html">Buildium</a>, <a href="./appfolio-unpaid-rent-collections.html">AppFolio</a>, <a href="./yardi-unpaid-rent-collections.html">Yardi</a> and <a href="./entrata-unpaid-rent-collections.html">Entrata</a> guides.
+          </p>
+
+          <div class="knowledge-check" id="rmOwner">
+            <strong>Owner statement recovery calculator</strong>
+            <p>See how one recovery should flow to the owner statement. Nothing you type leaves this page.</p>
+            <label class="tool-field">Gross amount the former tenant paid ($)
+              <input type="number" id="rmGross" min="0" step="0.01" inputmode="decimal" value="1000">
+            </label>
+            <label class="tool-field">Collection commission (%)
+              <input type="number" id="rmComm" min="0" max="100" step="0.5" inputmode="decimal" value="30">
+            </label>
+            <label class="tool-field">Your management fee (%)
+              <input type="number" id="rmFee" min="0" max="100" step="0.5" inputmode="decimal" value="8">
+            </label>
+            <div class="tool-row" role="group" aria-label="Management fee on recoveries">
+              <button type="button" class="tool-chip" data-fee="yes" aria-pressed="true">Fee applies to recoveries</button>
+              <button type="button" class="tool-chip" data-fee="no" aria-pressed="false">Fee excludes recoveries</button>
+            </div>
+            <div class="tool-out" aria-live="polite">
+              <p id="rmLines"></p>
+              <p id="rmOwnerOut"></p>
+            </div>
+          </div>
+
+          <aside class="key-takeaways">
+            <strong>Key takeaways</strong>
+            <ul>
+              <li>Rent Manager's own training sets the order: move out, apply charges, then refund the deposit.</li>
+              <li>Meet the state deposit deadline before placing anything: 30 days in Texas and Utah, 14 business days in Arizona, 31 days in Oregon.</li>
+              <li>A bad-debt write-off is an accounting entry; export the ledger before it posts.</li>
+              <li>Collections integrations activate from the in-product marketplace or connect by API, but a standard export works without one.</li>
+              <li>Send the tenant transaction ledger, aged receivables, move-out statement, lease and damage support.</li>
+              <li>Post recoveries gross, book the commission as an expense, and decide in writing whether your management fee applies.</li>
+              <li>Keep commercial balances, with their CAM support, in a separate file from residential consumer debt.</li>
+            </ul>
+          </aside>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <ul class="faq-list">
+            <li class="faq-item">
+              <details>
+                <summary>Does Rent Manager have a send-to-collections button?</summary>
+                <p>Not one that's documented publicly as a native feature. Collections run through integrations activated from the Available Integrations area, or through a standard ledger export sent to a collector.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Should I keep sending AR Automation notices after placing an account?</summary>
+                <p>No. Stop your own notices on placed accounts so the former tenant hears from one party. Mixed messages from the property and the collector are a common source of disputes.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>What if a former tenant pays the property directly after placement?</summary>
+                <p>Post the receipt to their Rent Manager ledger and tell the collector the same day so it stops contact and adjusts the balance. Whether commission is owed on direct payments depends on your collection agreement.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How often should I place former tenant balances?</summary>
+                <p>On a fixed schedule, at least monthly, once each account's deposit deadline has passed. Recovery drops as accounts age, and a regular batch keeps the ledger, the write-offs and the collector's file in sync.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Do I charge my management fee on a collection recovery?</summary>
+                <p>Only if your management agreement says recoveries count as collected rent. Decide it in writing, set the fee template to match, and don't let the commission and your fee net against each other silently.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Can I place commercial tenant balances the same way as residential ones?</summary>
+                <p>Keep them separate. Commercial balances often include CAM, taxes and insurance and need the reconciliation attached, and the FDCPA generally applies only to consumer debts.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>How many units run on Rent Manager?</summary>
+                <p>Rent Manager doesn't publish a unit count; it reports more than 10,000 property management company customers. An independent 2026 count puts it at about 5.75 million units, which is an estimate, not a company figure.</p>
+              </details>
+            </li>
+            <li class="faq-item">
+              <details>
+                <summary>Does Rent Manager report rent payments to credit bureaus?</summary>
+                <p>Yes, through Rent Tracker, which reports rent payments for current tenants. That's separate from collection-account reporting on a former tenant's balance, which a collector handles.</p>
+              </details>
+            </li>
+          </ul>
+
+          <p class="article-related">
+            Related: <a href="./buildium-unpaid-rent-collections.html">Collecting Unpaid Rent with Buildium</a> · <a href="./appfolio-unpaid-rent-collections.html">Collecting Unpaid Rent with AppFolio</a> · <a href="./entrata-unpaid-rent-collections.html">Collecting Unpaid Rent with Entrata</a> · <a href="./property-management-software-collections.html">Property Management Software for Collections</a> · <a href="./security-deposits-and-move-out-charges.html">Security Deposits and Move-Out Charges</a> · <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta-wrap">
+          <div>
+            <h2>Recover what's left on your Rent Manager ledgers.</h2>
+            <p>
+              Book a recovery review with Elite Recovery Group. Send a standard Rent Manager export and we'll show you what's collectible and how recoveries will post to your ledgers and owner statements.
+            </p>
+          </div>
+          <aside class="contact-card" aria-label="Elite Recovery Group contact information">
+            <a class="contact-line" href="tel:+14808407595">480-840-7595</a>
+            <a class="contact-line" href="https://ergroupllc.com">ergroupllc.com</a>
+            <address class="contact-address">1616 E Main St, STE 230<br>Mesa, AZ 85203</address>
+            <div class="contact-person">
+              <strong>Shawn Juarez</strong>
+              <span>Managing Director, US Collections and Growth</span>
+            </div>
+            <div class="contact-person">
+              <strong>Anton Vukic</strong>
+              <span>VP of Global Business Partnerships</span>
+            </div>
+            <a class="button" href="../contact.html#callback">Request a callback</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-col">
+          <span class="footer-brand">
+            <img src="../assets/erg-logo-badge-256.png" alt="" aria-hidden="true">
+            Elite Recovery Group, Specialist Property Collections
+          </span>
+          <p class="footer-tagline">Licensed U.S. platform | Global recovery support | FDCPA and Regulation F compliant</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer solutions">
+          <strong class="footer-col-heading">Solutions</strong>
+          <a href="../rental-debt-collection.html">Rental Debt Collection</a>
+          <a href="../collection-agency-for-landlords.html">Collection Agency for Landlords</a>
+          <a href="../unpaid-rent-collection-agency.html">Unpaid Rent Collection Agency</a>
+          <a href="../tenant-collection-agency.html">Tenant Collection Agency</a>
+          <a href="../best-collection-agency-for-unpaid-rent.html">Best Collection Agency for Unpaid Rent</a>
+          <a href="../property-management-collections.html">Property Management Collections</a>
+          <a href="../rental-collection-services.html">Rental Collection Services</a>
+          <a href="../move-out-debt-collection.html">Move-Out Debt Collection</a>
+          <a href="../eviction-cost-recovery.html">Eviction Cost Recovery</a>
+          <a href="../collection-agency-for-property-managers.html">Collection Agency for Property Managers</a>
+          <a href="../collection-agency-for-asset-managers.html">Collection Agency for Asset Managers</a>
+          <a href="../outsource-rent-collections.html">Outsource Rent Collections</a>
+          <a href="../fdcpa-compliant-collection-agency.html">FDCPA Compliant Collection Agency</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer company">
+          <strong class="footer-col-heading">Company</strong>
+          <a href="../compliance.html">Compliance</a>
+          <a href="../leadership.html">Leadership</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../terms-of-service.html">Terms of Service</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+        </nav>
+        <nav class="footer-col" aria-label="Footer account">
+          <strong class="footer-col-heading">Account</strong>
+          <a href="../pay-dispute.html">Pay Bill</a>
+          <a href="https://elite.clientconnectaccess.com/">Client Access</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../assets/site.js"></script>
+    <script>
+      (function () {
+        var box = document.getElementById('rmOwner');
+        if (!box) return;
+        var feeOn = true;
+        function num(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+        function money(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+        function update() {
+          var g = num('rmGross'), c = Math.round(g * num('rmComm')) / 100, f = feeOn ? Math.round(g * num('rmFee')) / 100 : 0;
+          document.getElementById('rmLines').textContent = 'Post ' + money(g) + ' to the tenant ledger. Commission expense: ' + money(c) + '. Cash from the collector: ' + money(g - c) + '. Management fee: ' + money(f) + '.';
+          document.getElementById('rmOwnerOut').textContent = 'Owner credit: ' + money(g - c - f) + '. The tenant balance drops by ' + money(g) + ', not by the cash received.';
+        }
+        box.querySelectorAll('[data-fee]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            feeOn = b.getAttribute('data-fee') === 'yes';
+            box.querySelectorAll('[data-fee]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+            update();
+          });
+        });
+        ['rmGross', 'rmComm', 'rmFee'].forEach(function (id) { document.getElementById(id).addEventListener('input', update); });
+        update();
+      })();
+    </script>
+  </body>
+</html>
